@@ -1,0 +1,99 @@
+:root {
+  --background: #262626;
+  --content: #3F3F46;
+  --red: #E83430;
+  --textColor: black;
+  --textLightColor: white;
+  --textLightHover: azure;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 260px;
+  max-width: 260px;
+  min-height: 100vh;
+  background-color: var(--content);
+}
+
+#sidebar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#sidebar a:hover {
+  color: var(--textLightHover);
+}
+
+#sidebar .sidebar-container {
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--textLightColor);
+}
+
+#sidebar .sidebar-container .sidebar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 48px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--background);
+}
+
+#sidebar .sidebar-container .sidebar-header h1 {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+}
+
+body .main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .main-container main {
+  padding: 0;
+  margin: 0;
+  width: calc(100% - 260px);
+  padding: 30px;
+}
+
+body .main-container main .content {
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 30px;
+  padding-top: 5px;
+}
+/*# sourceMappingURL=main.css.map */

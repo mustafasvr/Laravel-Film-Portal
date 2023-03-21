@@ -1,0 +1,18 @@
+:root {
+    --background: #262626;
+    --content: #3F3F46;
+    --red: #E83430;
+    --textColor: black;
+    --textLightColor: white;
+    --textLightHover: azure;
+}
+
+$container: 1200px;
+$sidebar: 260px;
+$padding: 30px;
+
+
+body {
+    padding: 0;
+    margin: 0;
+}

@@ -5,6 +5,9 @@
   --textColor: black;
   --textLightColor: white;
   --textLightHover: azure;
+  --mavi: #2075D7;
+  --koyumavi: #19579D;
+  --acikmavi: #a3cced;
 }
 
 body {
@@ -12,14 +15,18 @@ body {
   margin: 0;
 }
 
+body a {
+  text-decoration: none;
+}
+
 #sidebar {
   padding: 0;
   margin: 0;
-  position: relative;
   width: 260px;
-  max-width: 260px;
-  min-height: 100vh;
-  background-color: var(--content);
+  background-color: var(--mavi);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  overflow: auto;
 }
 
 #sidebar a {
@@ -31,9 +38,15 @@ body {
   color: var(--textLightHover);
 }
 
+#sidebar::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+  background-color: transparent;
+}
+
 #sidebar .sidebar-container {
   width: 100%;
-  position: absolute;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,9 +54,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: var(--textLightColor);
 }
 
@@ -59,8 +69,7 @@ body {
           justify-content: center;
   height: 48px;
   width: 100%;
-  text-align: center;
-  border-bottom: 1px solid var(--background);
+  border-bottom: 1px solid var(--koyumavi);
 }
 
 #sidebar .sidebar-container .sidebar-header h1 {
@@ -68,17 +77,58 @@ body {
   margin: 0;
 }
 
+#sidebar .sidebar-container .sidebar-body ul {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style-type: none;
+}
+
+#sidebar .sidebar-container .sidebar-body ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--koyumavi);
+  gap: 10px;
+}
+
+#sidebar .sidebar-container .sidebar-body ul li:hover {
+  background-color: var(--koyumavi);
+}
+
+#sidebar .sidebar-container .sidebar-body ul li svg {
+  width: 23px;
+  height: 23px;
+  -webkit-filter: invert(80%) sepia(0%);
+          filter: invert(80%) sepia(0%);
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   position: relative;
   padding: 0;
   margin: 0;
-  background-color: var(--background);
+  height: 100%;
 }
 
 body .main-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
 }
 
 body .main-container main {
@@ -86,6 +136,10 @@ body .main-container main {
   margin: 0;
   width: calc(100% - 260px);
   padding: 30px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: auto;
 }
 
 body .main-container main .content {
@@ -95,5 +149,59 @@ body .main-container main .content {
   width: 100%;
   padding: 30px;
   padding-top: 5px;
+}
+
+body .main-container .film {
+  position: relative;
+  margin: 10px 0;
+  width: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+body .main-container .film::before {
+  content: "";
+  background-image: var(--resim);
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+  border-radius: 4px;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+}
+
+body .main-container .film .film-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+body .main-container .film .film-container .film-img {
+  width: 64px;
+  height: 100%;
+}
+
+body .main-container .film .film-container .film-img img {
+  width: 64px;
+  height: 100%;
+  border-radius: 4px;
 }
 /*# sourceMappingURL=main.css.map */

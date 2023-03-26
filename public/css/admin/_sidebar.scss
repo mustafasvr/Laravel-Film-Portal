@@ -8,18 +8,23 @@
             color: var(--textLightHover);
         }
     }
-    position: relative;
     width: $sidebar;
-    max-width: $sidebar;
-    min-height: 100vh;
-    background-color: var(--content);
+    background-color: var(--mavi);
+    flex-shrink: 0;
+    overflow: auto;
+    &::-webkit-scrollbar 
+    {
+        width: 3px;
+        height: 5px;
+        background-color: transparent;
+    } 
+
 
     .sidebar-container {
         width: 100%;
-        position: absolute;
+        position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
         color: var(--textLightColor);
 
         .sidebar-header {
@@ -28,11 +33,34 @@
             justify-content: center;
             height: 48px;
             width: 100%;
-            text-align: center;
-            border-bottom: 1px solid var(--background);
+            border-bottom: 1px solid var(--koyumavi);
             h1 {
                 padding: 0;
                 margin: 0;
+            }
+        }
+        .sidebar-body {
+            ul {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                li {
+                    display: flex;
+                    align-items: center;
+                    padding: 15px 10px;
+                    border-bottom: 1px solid var(--koyumavi);
+                    gap: 10px;
+                    &:hover {
+                        background-color: var(--koyumavi);
+                    }
+                    svg {
+                        width: 23px;
+                        height: 23px;
+                        filter: invert(80%) sepia(0%);
+                    }
+                }
             }
         }
     }

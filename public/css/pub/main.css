@@ -1,0 +1,208 @@
+:root {
+  --background: #262626;
+  --content: #3F3F46;
+  --red: #E83430;
+  --textColor: black;
+  --textLightColor: white;
+  --textLightHover: azure;
+  --mavi: #2075D7;
+  --koyumavi: #19579D;
+  --acikmavi: #a3cced;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background);
+}
+
+body header {
+  width: 100%;
+}
+
+body header .header-container {
+  width: 1200px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body header .header-container .header-logo {
+  color: white;
+  font-weight: bold;
+}
+
+body header .header-container .header-logo a {
+  color: inherit;
+}
+
+body header .header-container .header-box img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+body .film-top {
+  width: 100%;
+  height: 100%;
+  width: 1200px;
+  margin: auto;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+body .film-top .film-top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .film-top .film-top-container .film-top-header {
+  margin-bottom: 7px;
+}
+
+body .film-top .film-top-container .film-top-header h3 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+body .film-top .film-top-container .film-top-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+
+body .film-top .film-top-container .film-top-body img {
+  border-radius: 4px;
+}
+
+body .film-portal {
+  width: 1200px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [Main] 1fr [Sidebar] 325px;
+      grid-template-columns: [Main] 1fr [Sidebar] 325px;
+      grid-template-areas: "Main Sidebar";
+  gap: 20px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body .film-portal .film-portal-main {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: Main;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: var(--content);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body .film-portal .film-portal-main .film {
+  position: relative;
+  margin: 1px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+body .film-portal .film-portal-main .film::before {
+  content: "";
+  background-image: var(--resim);
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.5;
+  border-radius: 4px;
+  -webkit-filter: brightness(20%);
+          filter: brightness(20%);
+}
+
+body .film-portal .film-portal-main .film .film-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+body .film-portal .film-portal-main .film .film-container .film-img {
+  width: 50px;
+  height: 100%;
+}
+
+body .film-portal .film-portal-main .film .film-container .film-img img {
+  width: 50px;
+  height: 100%;
+  border-radius: 4px;
+}
+
+body .film-portal .film-portal-sidebar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: Sidebar;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: var(--content);
+  height: 100vh;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=main.css.map */

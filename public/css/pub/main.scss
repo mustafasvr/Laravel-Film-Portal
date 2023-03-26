@@ -1,0 +1,146 @@
+@import '../root';
+
+
+
+
+body {
+    background-color: var(--background);
+
+
+    header {
+        width: 100%;
+        .header-container {
+            width: $container;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .header-logo {
+                a { color: inherit;}
+                color: white;
+                font-weight: bold;
+            }
+            .header-box {
+                img {
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+
+
+    .film-top {
+        width: 100%;
+        height: 100%;
+        width: $container;
+        margin: auto;
+        border-radius: $borderRadius;
+        padding: 10px;
+
+        .film-top-container {
+            display: flex;
+            flex-direction: column;
+            .film-top-header {
+                margin-bottom: 7px;
+                h3 {
+                    padding: 0;
+                    margin: 0;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 25px;
+                }
+            }
+            .film-top-body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                img {
+                    border-radius: $borderRadius;
+                }
+            }
+        }
+    }
+
+
+    .film-portal {
+        width: $container;
+        margin: auto;
+        display: grid;
+        grid-template-columns: [Main] 1fr [Sidebar] 325px;
+        grid-template-areas: "Main Sidebar";
+        gap: 20px;
+        padding: 5px;
+        box-sizing: border-box;
+
+
+        .film-portal-main {
+            grid-area: Main;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: $borderRadius;
+            padding: 10px;
+            background-color: var(--content);
+            box-sizing: border-box;
+
+
+            .film {
+                position: relative;
+                margin: 1px 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                padding: 10px;
+                color: white;
+                font-weight: bold;
+                &::before {
+                    content: "";
+                    background-image: var(--resim);
+                    background-color: black;
+                    width: 100%;
+                    height: 100%;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    opacity: 0.5;
+                    border-radius: 4px;
+                    filter: brightness(20%);
+                }
+                .film-container {
+                    display: flex;
+                    gap: 20px;
+                    .film-img {
+                        width: 50px;
+                        height: 100%;
+                        img {
+                            width: 50px;
+                            height: 100%;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .film-portal-sidebar {
+            grid-area: Sidebar;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--content);
+            height: 100vh;
+            border-radius: $borderRadius;
+        }
+
+
+    }
+
+}

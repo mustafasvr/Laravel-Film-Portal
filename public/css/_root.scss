@@ -1,0 +1,26 @@
+:root {
+    --background: #262626;
+    --content: #3F3F46;
+    --red: #E83430;
+    --textColor: black;
+    --textLightColor: white;
+    --textLightHover: azure;
+    --mavi: #2075D7;
+    --koyumavi: #19579D;
+    --acikmavi: #a3cced;
+}
+
+$container: 1200px;
+$sidebar: 260px;
+$padding: 30px;
+$borderRadius: 4px;
+
+
+body {
+    padding: 0;
+    margin: 0;
+
+    a {
+        text-decoration: none;
+    }
+}

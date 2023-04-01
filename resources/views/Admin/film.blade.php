@@ -3,7 +3,14 @@
 @section('adminmain')
 
 
+<section class="content-header">
+    <div class="ch-right">
+        <a href="{{ route('admin.film.cek') }}" class="button">Filmleri Çek</a>
+    </div>
+</section>
 
+
+<section class="content-body">
 
 
     @foreach ($film as $row)
@@ -19,7 +26,7 @@
             </div>
 
             <article class="film-body">
-                <div class="film-title">   {{ $row->title }}</div>
+                <div class="film-title">  {{ $row->title }}</div>
                 <div class="film-extra"></div>
             </article>
             
@@ -27,6 +34,8 @@
     </section>
 
     @endforeach
+
+</section>
 
 
 

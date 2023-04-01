@@ -8,12 +8,69 @@
     --mavi: #2075D7;
     --koyumavi: #19579D;
     --acikmavi: #a3cced;
+
+    // Content Background
+
+    --contentBg: rgb(254,254,254);
+    --contentAltBg: rgb(245,245,245);
+    --pageBg: rgb(236,236,236);
+
+
+    // Metin Renkleri
+
+    --paletteColor1: rgb(237, 246, 253);
+    --paletteColor2: rgb(188, 222, 245);
+    --paletteColor3: rgb(71, 167, 235);
+    --paletteColor4: rgb(37, 119, 177);
+    --paletteColor5: rgb(24, 88, 134);
+    --paletteColor6: rgba(22, 79, 121,1);
+
+    // Buton Renkleri
+
+    --buttonBg: rgb(37, 119, 177);
+    --buttonPrimaryBg:  rgb(71, 167, 235);
+    --buttonCtaBg:  rgb(242, 147, 13);
+
+    // Border Renkleri
+
+    --borderColor1: rgb(216, 216, 216);
+    --borderColor2: rgb(203, 203, 203);
+
+    // Link Renkleri
+
+    --linkColor: rgb(37, 119, 177);
+    --linkHoverColor: rgb(24, 88, 134);
+
+    font-family: 'Roboto', sans-serif;
+
 }
+
+
+
+// PADDING
+
+
+$paddingXS: 5px;
+$paddingS: 10px;
+$paddingM: 20px; 
+$paddingL: 30px;
+
+// MARGIN
+
+$marginXS: 5px;
+$marginS: 10px;
+$marginM: 20px; 
+$marginL: 30px;
+
+
 
 $container: 1200px;
 $sidebar: 260px;
-$padding: 30px;
+
 $borderRadius: 4px;
+
+
+@import 'components/button';
 
 
 body {
@@ -22,5 +79,9 @@ body {
 
     a {
         text-decoration: none;
+        color: var(--linkColor);
+        &:hover {
+            color: var(--linkHoverColor);
+        }
     }
 }

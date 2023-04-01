@@ -2,33 +2,17 @@
 
 namespace App\Http\Controllers\Public;
 
-use App\Models\Film;
-use Illuminate\Http\Request;
-use App\Models\FilmCategories;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class indexController extends Controller
+class filmCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $film = Film::with('FilmImages')->orderBy('id','desc')->limit(7)->get();
-
-        $filmlist = DB::table('ms_film')
-            ->join('ms_film_categories', function($join){
-                $join->on('ms_film.categories', 'LIKE', DB::raw("CONCAT('%', ms_film_categories.category_id, '%')"));
-            })
-            ->select('ms_film.title', DB::raw('GROUP_CONCAT(ms_film_categories.category_name SEPARATOR ", ") AS categories'))
-            ->groupBy('ms_film.id')
-            ->get();
-
-
-        $categories = FilmCategories::all();
-
-        return \view('Public.home',\compact('film','filmlist','categories'));
+        //
     }
 
     /**

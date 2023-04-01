@@ -8,6 +8,8 @@ use App\Models\Film;
 use App\Models\FilmImages;
 use Illuminate\Support\Facades\Http;
 
+use function GuzzleHttp\json_encode;
+
 class filmController extends Controller
 {
 
@@ -35,7 +37,7 @@ class filmController extends Controller
    public function index()
    {
 
-      $film = Film::with('FilmImages')->get();
+      $film = Film::with('FilmImages')->orderBy('id','desc')->get();
 
       return \view('Admin.film', \compact('film'));
    }
@@ -70,10 +72,15 @@ class filmController extends Controller
          $posters = 'http://image.tmdb.org/t/p/w200'.$key['poster_path'];
          $backdrops = 'http://image.tmdb.org/t/p/w500'.$key['backdrop_path'];
 
+
+
+         $categories = json_encode($key['genre_ids']);
+
          if (!$c) {
             $film->film_id = $key['id'];
             $film->title = $title;
             $film->content = $key['overview'];
+            $film->categories = $categories;
             $film->vote = $key['vote_average'];
             $film->popularity = $key['popularity'];
             $film->release_date = $date;

@@ -20,5 +20,11 @@ class Film extends Model
         return $this->hasOne(FilmImages::class,'film_id','film_id');
     }
 
+    public function categories()
+    {
+        return $this->hasOne(FilmCategories::class,'categories','category_id');
+    }
+
+
 
 }

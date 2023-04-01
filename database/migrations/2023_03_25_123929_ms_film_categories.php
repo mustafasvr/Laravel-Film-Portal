@@ -12,10 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ms_film_categories', function (Blueprint $table) {
+
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_general_ci';
+
             $table->id('category_id')->autoIncrement();
             $table->string('category_name')->nullable();
+            $table->string('category_url')->nullable();
+            $table->string('category_desc')->nullable();
+            $table->string('category_icon')->nullable();
             $table->timestamps();
+
+
+ 
+
         });
+
+        
     }
 
     /**
@@ -23,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('ms_film_categories');
     }
 };

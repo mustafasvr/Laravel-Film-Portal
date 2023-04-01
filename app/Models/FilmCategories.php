@@ -11,4 +11,6 @@ class FilmCategories extends Model
     protected $table = 'ms_film_categories';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+
 }

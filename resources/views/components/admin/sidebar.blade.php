@@ -1,20 +1,27 @@
 <aside id="sidebar">
 <div class="sidebar-container">
     <div class="sidebar-header">
-        <h1><a href="{{ route('admin') }}">Admin Panel</a></h1>
+        <h1><a href="{{ route('admin.index') }}">Admin Panel</a></h1>
     </div>
     <div class="sidebar-body">
         <ul>
-            <a href="{{ route('admin') }}"><li>
+            <a href="/" target="_blank"><li>
+                <i class="fas fa-compass"></i>
+                Siteyi Görüntüle</li></a>
+            <a href="{{ route('admin.index') }}"><li>
                 <i class="fas fa-home"></i>
                 Dashborad</li></a>
-             <a href="{{ route('film') }}"><li>
+             <a href="{{ route('admin.film.index') }}"><li>
                 <i class="fas fa-clapperboard"></i>
               Filmler</li></a>
 
-              <a href="{{ route('categories') }}"><li>
+              <a href="{{ route('admin.categories.index') }}"><li>
                 <i class="fas fa-chess"></i>
               Kategoriler</li></a>
+
+              <a href="{{ route('admin.settings.index') }}"><li>
+                <i class="fas fa-cog"></i>
+              Ayarlar</li></a>
 
         </ul>
     </div>

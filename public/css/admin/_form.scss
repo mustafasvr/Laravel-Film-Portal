@@ -1,0 +1,66 @@
+.formRow {
+    border: 1px solid var(--borderColor1);
+    .formRow-header {
+        box-sizing: border-box;
+        padding: $paddingS;
+        width: 100%;
+        background-color: var(--contentAltBg);
+        border-bottom: 1px solid var(--borderColor1);
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+            color: var(--linkColor);
+        }
+    }
+    .formRow-body {
+        dl,
+        dt,
+        dd {
+            padding: 0;
+            margin: 0;
+        }
+        dl {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            margin: 0;
+            position: relative;
+
+            dt {
+                display: table-cell;
+                vertical-align: top;
+                text-align: right;
+                padding: $paddingS;
+                background-color: var(--contentAltBg);
+                border-right: 1px solid var(--borderColor1);
+            }
+
+            dd {
+                box-sizing: border-box;
+                display: table-cell;
+                vertical-align: top;
+                width: 67%;
+                padding: $paddingXS $paddingS;
+                input {
+                    padding: $paddingXS;
+                    border: 1px solid var(--borderColor2);
+                    input:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+    .formRow-footer {
+        box-sizing: border-box;
+        height: 32px;
+        width: 100%;
+        background-color: var(--paletteColor1);
+        border-top: 1px solid var(--borderColor1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $paddingS;
+    }
+}

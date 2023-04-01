@@ -1,5 +1,9 @@
 @import '../root';
 @import 'sidebar';
+@import 'table';
+@import 'form';
+
+
 
 
 html,body {
@@ -11,6 +15,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
+    background-color: var(--pageBg);
     .main-container {
         display: flex;
         height: 100%;
@@ -18,15 +23,45 @@ body {
             padding: 0;
             margin: 0;
             width: calc(100% - #{$sidebar});
-            padding: max($padding);
+            padding: max($paddingM);
             flex-grow: 1;
             overflow: auto;
             .content {
+                max-width: 1100px;
                 margin: auto;
                 box-sizing: border-box;
                 width: 100%;
-                padding: $padding;
-                padding-top: 5px;
+                padding: $paddingM;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .content-header {
+                    display: flex;
+                    flex-wrap: wrap;
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        padding: 0;
+                        margin: 0;
+                    }
+                    .ch-left {
+                        margin-right: auto;
+                    }
+                    .ch-right {
+                        margin-left: auto;
+                    }
+                }
+                .content-body {
+                    background-color: var(--contentBg);
+                    border-radius: $borderRadius;
+                    &.content-row {
+                        padding: $paddingS;
+                    }
+                }
             }
         }
 
@@ -34,12 +69,10 @@ body {
         .film {
             position: relative;
             margin: 10px 0;
-            width: 360px;
             display: flex;
             align-items: center;
             box-sizing: border-box;
             padding: 10px;
-            color: white;
             font-weight: bold;
             &::before {
                 content: "";
@@ -53,7 +86,6 @@ body {
                 position: absolute;
                 top: 0;
                 left: 0;
-                z-index: -1;
                 opacity: 0.5;
                 border-radius: 4px;
                 filter: brightness(50%);

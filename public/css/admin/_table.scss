@@ -1,0 +1,33 @@
+
+
+.admin-table
+{
+    padding: 0;
+    margin: 0;
+    .admin-table-tr {
+    display: flex;
+    gap: $marginXS;
+    min-height: 40px;
+    align-items: center;
+    border-bottom: 1px solid var(--borderColor1);
+    color: var(--paletteColor4);
+
+    padding-left: $paddingXS;
+    padding-right: $paddingXS;
+    .admin-table-icon {
+        width: 50px;
+        text-align: center;
+        font-size: 125%;        
+    }
+    .admin-table-tool {
+        margin-left: auto;
+        margin-right: $marginXS;
+        a {
+            box-sizing: border-box;
+            background-color: var(--borderColor1);
+            padding: $paddingXS;
+            border-radius: $borderRadius;
+        }
+    }
+}
+}

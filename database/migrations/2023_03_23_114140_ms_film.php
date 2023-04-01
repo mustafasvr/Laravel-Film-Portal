@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('film_id')->unique();
             $table->string('title');
             $table->binary('content');
+            $table->string('categories');
             $table->string('vote');
             $table->string('popularity');
             $table->string('release_date')->nullable();
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('ms_film');
     }
 };

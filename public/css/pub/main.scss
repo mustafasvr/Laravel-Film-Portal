@@ -1,11 +1,7 @@
-@import '../root';
-
-
-
+@import "../root";
 
 body {
     background-color: var(--background);
-
 
     header {
         width: 100%;
@@ -16,7 +12,9 @@ body {
             align-items: center;
             justify-content: space-between;
             .header-logo {
-                a { color: inherit;}
+                a {
+                    color: inherit;
+                }
                 color: white;
                 font-weight: bold;
             }
@@ -28,8 +26,6 @@ body {
             }
         }
     }
-
-
 
     .film-top {
         width: 100%;
@@ -64,7 +60,6 @@ body {
         }
     }
 
-
     .film-portal {
         width: $container;
         margin: auto;
@@ -75,60 +70,117 @@ body {
         padding: 5px;
         box-sizing: border-box;
 
-
         .film-portal-main {
             grid-area: Main;
             display: flex;
             flex-direction: column;
             height: 100%;
-            border-radius: $borderRadius;
-            padding: 10px;
-            background-color: var(--content);
             box-sizing: border-box;
 
+            .film-node {
+                .film-node-container {
+                    border: 2px solid var(--content);
+                    .film-node-header {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 60px;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        background-color: var(--content);
+                        .node-head {
+                            padding: 0;
+                            margin: 0;
+                            font-size: 20px;
+                        }
+                        .node-desc {
+                            font-size: 12px;
+                        }
+                    }
 
-            .film {
-                position: relative;
-                margin: 1px 0;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                box-sizing: border-box;
-                padding: 10px;
-                color: white;
-                font-weight: bold;
-                &::before {
-                    content: "";
-                    background-image: var(--resim);
-                    background-color: black;
-                    width: 100%;
-                    height: 100%;
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                    opacity: 0.5;
-                    border-radius: 4px;
-                    filter: brightness(20%);
-                }
-                .film-container {
-                    display: flex;
-                    gap: 20px;
-                    .film-img {
-                        width: 50px;
-                        height: 100%;
-                        img {
-                            width: 50px;
-                            height: 100%;
-                            border-radius: 4px;
+                    .film-node-body {
+                        display: grid;
+                        grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 120px [node-extra] 250px;
+                        grid-template-areas: "node-icon node-main node-stats node-extra";
+                        border-bottom: 1px solid #555555;
+                        box-sizing: border-box;
+                        padding: 10px 0;
+                        min-height: 80px;
+                        justify-content: center;
+                        gap: 10px;
+
+                        .node-icon {
+                            grid-area: node-icon;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-left: 10px;
+                            color: #8c8c8c;
+                            font-size: 32px;
+                        }
+                        .node-main {
+                            grid-area: node-main;
+                            .main-head {
+                                font-size: 17px;
+                                font-weight: bold;
+                                color: aliceblue;
+                            }
+                            .main-body {
+                                font-size: 12px;
+                                color: #8c8c8c;
+                            }
+                        }
+                        .node-stats {
+                            grid-area: node-stats;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            gap: 10px;
+                            .node-stats-item {
+                                box-sizing: border-box;
+                                background-color: #555555;
+                                padding: 10px;
+                                border-radius: $borderRadius;
+                                div {
+                                    font-size: 12px;
+                                }
+                                span {
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                        .node-extra {
+                            position: relative;
+                            grid-area: node-extra;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            .extra-user {
+                                img {
+                                    width: 32px;
+                                    border-radius: 50%;
+                                }
+                            }
+                            .extra-body {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                                .extra-title {
+                                    width: 200px;
+                                    overflow: hidden; /* taşanları gizle */
+                                    white-space: nowrap; /* alt satıra hiç inme */
+                                    text-overflow: ellipsis;
+                                    color: #8c8c8c;
+                                }
+                                .extra-last {
+                                    font-size: 14px;
+                                }
+                            }
                         }
                     }
                 }
             }
-
         }
 
         .film-portal-sidebar {
@@ -139,8 +191,5 @@ body {
             height: 100vh;
             border-radius: $borderRadius;
         }
-
-
     }
-
 }

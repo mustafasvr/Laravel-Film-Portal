@@ -1,0 +1,29 @@
+button,
+.button,
+a.button
+{
+	cursor: pointer;
+	border: 1px solid transparent;
+    padding: $paddingXS $paddingS;
+    border-radius: $borderRadius;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+    background-color: var(--buttonBg);
+	&:hover {
+		color: azure;
+		background-color: var(--paletteColor5);
+	}
+
+	&.button--primary
+	{
+		background-color: var(--buttonPrimaryBg);
+	}
+
+	&.button--cta
+	{
+		background-color: var(--buttonCtaBg);
+	}
+
+
+}

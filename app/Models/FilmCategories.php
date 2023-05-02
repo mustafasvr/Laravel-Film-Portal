@@ -13,4 +13,5 @@ class FilmCategories extends Model
     protected $guarded = [];
 
 
+
 }

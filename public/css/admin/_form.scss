@@ -40,9 +40,22 @@
                 box-sizing: border-box;
                 display: table-cell;
                 vertical-align: top;
-                width: 67%;
+                display: flex;
+                align-items: center;
                 padding: $paddingXS $paddingS;
+                gap: 5px;
+                .del {
+                    text-align: center;
+                    padding: 4px;
+                    background-color: var(--contentAltBg);
+                    border: 1px solid var(--borderColor2);
+                }
+                select,
+                textarea,
                 input {
+                    box-sizing: border-box;
+                    max-width: 100%;
+                    width: 100%;
                     padding: $paddingXS;
                     border: 1px solid var(--borderColor2);
                     input:focus {

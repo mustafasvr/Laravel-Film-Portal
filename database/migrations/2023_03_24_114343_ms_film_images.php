@@ -17,6 +17,7 @@ return new class extends Migration
             $table->binary('posters')->nullable();
             $table->binary('backdrops')->nullable();
             $table->timestamps();
+            $table->foreign('film_id')->references('film_id')->on('ms_film')->onDelete('cascade');
         });
     }
 

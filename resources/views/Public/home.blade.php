@@ -2,18 +2,6 @@
 
 @section('main')
 
-<header>
-<div class="header-container">
-<div class="header-logo">
-<a href="{{ route('home')}}"> <h1>#LOGO</h1></a>
-</div>
-<div class="header-box">
-    <img src="https://lh3.googleusercontent.com/a/AGNmyxaCSPLT0gdZ2RwQjAkvzDk9Mzs69Y5EG_HfYZan=s288-mo" alt="">
-</div>
-</div>
-</header>
-
-
 <section class="film-top">
 
     <div class="film-top-container">
@@ -24,7 +12,7 @@
 
             @foreach ($film as $item)
 
-            <img src="{{ $item->FilmImages->posters }}" alt="" height="230px">
+            <img src="{{ $item->FilmImages->posters }}" alt="" height="225px">
         
             @endforeach
 
@@ -46,33 +34,43 @@
                     <h2 class="node-head">Başkık</h2>
                     <div class="node-desc">Açıklama</div>
                 </div>
-                @foreach ($categories as $item)
+
+
+
+                @foreach ($kategori as $item)
+
+  
+
                 <div class="film-node-body">
-                        <div class="node-icon">                @if ($item->category_icon)
-                            <i class="{{ $item->category_icon }}"></i>
+                        <div class="node-icon">  @if ($item['category']->category_icon)
+                            <i class="{{ $item['category']->category_icon }}"></i>
                             @else 
                             <i class="fas fa-ban"></i>
                             @endif</div>
+
+              
+
                         <div class="node-main">
-                            <div class="main-head"> <a href="#">{{ $item->category_name }}</a> </div>
-                            <div class="main-body"> {{ $item->category_desc }}</div>
+                            <div class="main-head"> <a href="{{ route('categories.index',['group' => $item['category']->category_url]) }}">{{ $item['category']->category_name }}</a> </div>
+                            <div class="main-body"> {{ $item['category']->category_desc }}</div>
                         </div>
                         <div class="node-stats">
                             <div class="node-stats-item">
                                 <div>Filmler</div>
-                                <span>12</span>
+                                <span>{{ $item['count']['sayi']}}</span>
                             </div>
                             <div class="node-stats-item">
                                 <div>Mesajlar</div>
-                                <span>2131</span>
+                                <span>*</span>
                             </div>
                         </div>
-                        <div class="node-extra">
+                        <div class="node-extra" style="--resim: url({{ $item['film'][0]->FilmImages->backdrops }})">
+
                             <div class="extra-user">
                                 <img src="https://lh3.googleusercontent.com/a/AGNmyxaCSPLT0gdZ2RwQjAkvzDk9Mzs69Y5EG_HfYZan=s288-mo" alt="">
                             </div>
                             <div class="extra-body">
-                                <div class="extra-title">Bizden Geriye Kalanlar asdasd asd sad sad</div>
+                                <div class="extra-title"><a href="{{ route('film.index',['name' => $item['film'][0]->film_url,'id' => $item['film'][0]->film_id]) }}">{{ $item['film'][0]->title }}</a></div>
                                 <div class="extra-last">
                                     28 Ağustos 2021 Root
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Film;
@@ -14,30 +15,35 @@ class filmController extends Controller
 {
 
 
-   public $url = 'https://api.themoviedb.org/3/trending/all/week?api_key=d3833d42b5abba5e0c60e0289e9095e8&language=tr-TR';
-   public $data;
 
-   public function __construct()
-   {
-      $this->data = \file_get_contents($this->url);
-      $this->parser();
-   }
-
-   public function parser()
-   {
-      $this->data = \json_decode($this->data, true);
-   }
 
    public function getMovie()
    {
-      return $this->data['results'];
+
+
+      $page = 1;
+
+      $parse = [];
+
+      while($page <= 10)
+      {
+         $url = 'https://api.themoviedb.org/3/discover/movie?api_key=d3833d42b5abba5e0c60e0289e9095e8&region=TR&language=tr-TR&primary_release_date.gte=2023-01-01&primary_release_date.lte='.date('Y-m-d').'&adult=false&page='.$page;
+         $data = file_get_contents($url);
+         $parse[] = json_decode($data,true);
+         $page++;
+      }
+
+   
+      return $parse;
+
+
    }
 
 
    public function index()
    {
 
-      $film = Film::with('FilmImages')->orderBy('id','desc')->get();
+      $film = Film::with('FilmImages')->orderBy('release_date','desc')->get();
 
       return \view('Admin.film', \compact('film'));
    }
@@ -48,7 +54,11 @@ class filmController extends Controller
 
       $a = $this->getMovie();
 
-      foreach ($a as $key) {
+
+      foreach ($a as $wo => $item) {
+
+         foreach($item['results'] as $key){
+
 
          $film = new Film();
          $filmImages = new FilmImages();
@@ -69,15 +79,16 @@ class filmController extends Controller
          $c = Film::with('FilmImages')->where('film_id', $key['id'])->first();
 
 
-         $posters = 'http://image.tmdb.org/t/p/w200'.$key['poster_path'];
-         $backdrops = 'http://image.tmdb.org/t/p/w500'.$key['backdrop_path'];
-
-
-
-         $categories = json_encode($key['genre_ids']);
+         $categories =  implode(',',$key['genre_ids']);
 
          if (!$c) {
+
+
+            if($key['poster_path'] != null)
+            {
+
             $film->film_id = $key['id'];
+            $film->film_url = Helper::seo($title);
             $film->title = $title;
             $film->content = $key['overview'];
             $film->categories = $categories;
@@ -86,12 +97,22 @@ class filmController extends Controller
             $film->release_date = $date;
             $film->save();
 
-            $filmImages->film_id = $key['id'];
-            $filmImages->posters = $posters;
-            $filmImages->backdrops = $backdrops;
-            $filmImages->save();
-         }
+               $posters = 'http://image.tmdb.org/t/p/w200'.$key['poster_path'];
+               if($key['backdrop_path'] != null) {
+                  $backdrops = 'http://image.tmdb.org/t/p/w500'.$key['backdrop_path'];
+               } else {
+                  $backdrops = '';
+               }
 
+               $filmImages->film_id = $key['id'];
+               $filmImages->posters = $posters;
+               $filmImages->backdrops = $backdrops;
+               $filmImages->save();
+            }
+
+
+         }
+      }
 
 
 

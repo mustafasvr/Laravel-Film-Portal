@@ -15,6 +15,19 @@
 
 <body>
 
+
+    <header>
+        <div class="header-container">
+        <div class="header-logo">
+        <a href="{{ route('home')}}"> <h1>#{{ config('settings.shortName') }}</h1></a>
+        </div>
+        <div class="header-box">
+            <img src="https://lh3.googleusercontent.com/a/AGNmyxaCSPLT0gdZ2RwQjAkvzDk9Mzs69Y5EG_HfYZan=s288-mo" alt="">
+        </div>
+        </div>
+        </header>
+
+
     <main>
         @yield('main')
     </main>

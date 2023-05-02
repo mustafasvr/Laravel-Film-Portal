@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('group_id')->unsigned();
             $table->string('settings_name')->unique()->require();
             $table->string('settings_value')->nullable();
-            $table->enum('settings_type', ['text','color','file','textarea'])->default('text');
+            $table->enum('settings_type', ['text','color','boolen','file','textarea'])->default('text');
             $table->boolean('settings_delete')->default(true);
             $table->foreign('group_id')->references('group_id')->on('ms_settings_group')->onDelete('cascade');
        

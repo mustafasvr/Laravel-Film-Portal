@@ -29,11 +29,30 @@
                     @elseif($item->settings_type == 'color')
                     <input type="color" name="{{ $item->settings_name }}"   value="{{ $item->settings_value }}">
                     @elseif($item->settings_type == 'file')
+                    @if (isset($item->settings_value))
                     <img src="{{ $item->settings_value }}" alt="{{ $item->settings_name }}">
+                    @endif
                     <input type="file" name="{{ $item->settings_name }}"   value="{{ $item->settings_value }}">
                     @elseif($item->settings_type == 'textarea')
                     <textarea name="{{ $item->settings_name }}" cols="60" rows="2">{{ $item->settings_value }}</textarea>
+                    @elseif($item->settings_type == 'boolen')
+
+                    <select name="{{ $item->settings_name }}">
+                        @if ($item->settings_value == 0)
+                        <option selected value="0">false</option>
+                        <option value="1">true</option>
+                        @else
+                        <option selected value="1">true</option>
+                        <option value="0">false</option>
+                        @endif
+                    </select>
                     @endif
+
+                    @if($item->settings_delete)
+                    <a href="{{ Route('admin.settings.destroy',['id'=> $item->settings_id]) }}" class="del"><i class="fas fa-trash"></i></a>
+                    @endif
+
+
                     </dd>
             </dl>
             @endforeach

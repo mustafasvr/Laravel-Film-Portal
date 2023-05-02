@@ -1,7 +1,7 @@
 <aside id="sidebar">
 <div class="sidebar-container">
     <div class="sidebar-header">
-        <h1><a href="{{ route('admin.index') }}">Admin Panel</a></h1>
+        <h1><a href="{{ route('admin.index') }}"> {{ config('settings.shortName') }} Admin Panel</a></h1>
     </div>
     <div class="sidebar-body">
         <ul>

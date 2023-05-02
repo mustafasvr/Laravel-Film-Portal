@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  font-family: 'Roboto', sans-serif;
   --background: #262626;
   --content: #3F3F46;
   --red: #E83430;
@@ -25,7 +26,6 @@
   --borderColor2: rgb(203, 203, 203);
   --linkColor: rgb(37, 119, 177);
   --linkHoverColor: rgb(24, 88, 134);
-  font-family: 'Roboto', sans-serif;
 }
 
 button,
@@ -193,6 +193,7 @@ body .film-portal .film-portal-main .film-node .film-node-container {
 }
 
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-header {
+  color: whitesmoke;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,7 +221,66 @@ body .film-portal .film-portal-main .film-node .film-node-container .film-node-h
   font-size: 12px;
 }
 
+body .film-portal .film-portal-main .film-node .film-node-container .film-portal-categories {
+  padding: 5px;
+  gap: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 200px 200px 200px;
+      grid-template-columns: 200px 200px 200px 200px;
+}
+
+body .film-portal .film-portal-main .film-node .film-node-container .film-portal-categories .film-categories-body {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+body .film-portal .film-portal-main .film-node .film-node-container .film-portal-categories .film-categories-body::before {
+  content: "";
+  background-image: var(--resim);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  border-radius: 4px;
+  -webkit-filter: brightness(75%);
+          filter: brightness(75%);
+}
+
+body .film-portal .film-portal-main .film-node .film-node-container .film-portal-categories .film-categories-body:hover::before {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+body .film-portal .film-portal-main .film-node .film-node-container .film-portal-categories .film-categories-body .film-score {
+  content: "";
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: darkgoldenrod;
+  font-weight: bolder;
+  right: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  background-color: yellow;
+  border-radius: 50% 0 50% 50%;
+}
+
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-body {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: [node-icon] 50px [node-main] 1fr [node-stats] 120px [node-extra] 250px;
@@ -229,12 +289,12 @@ body .film-portal .film-portal-main .film-node .film-node-container .film-node-b
   border-bottom: 1px solid #555555;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 10px 0;
+  padding: 10px 5px;
   min-height: 80px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-body .node-icon {
@@ -317,6 +377,25 @@ body .film-portal .film-portal-main .film-node .film-node-container .film-node-b
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+  padding: 5px;
+}
+
+body .film-portal .film-portal-main .film-node .film-node-container .film-node-body .node-extra::before {
+  content: "";
+  background-image: var(--resim);
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0.5;
+  border-radius: 4px;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
 }
 
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-body .node-extra .extra-user img {
@@ -342,11 +421,12 @@ body .film-portal .film-portal-main .film-node .film-node-container .film-node-b
   white-space: nowrap;
   /* alt satıra hiç inme */
   text-overflow: ellipsis;
-  color: #8c8c8c;
+  color: white;
 }
 
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-body .node-extra .extra-body .extra-last {
   font-size: 14px;
+  color: #8c8c8c;
 }
 
 body .film-portal .film-portal-sidebar {

@@ -77,10 +77,12 @@ body {
             height: 100%;
             box-sizing: border-box;
 
+
             .film-node {
                 .film-node-container {
                     border: 2px solid var(--content);
                     .film-node-header {
+                        color: whitesmoke;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -98,17 +100,71 @@ body {
                         }
                     }
 
+
+                    .film-portal-categories {
+                        padding: 5px;
+                        gap: 10px;
+                        display: grid;
+                        grid-template-columns: 200px 200px 200px 200px;
+        
+                        .film-categories-body {
+                            position: relative;
+                            width: 200px;
+                            height: 300px;
+
+                                &::before {
+                                    content: "";
+                                    background-image: var(--resim);
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    z-index: -1;
+                                    border-radius: 4px;
+                                    filter: brightness(75%);
+                                   }
+                                   &:hover {
+                                    &::before {
+                                        filter: brightness(100%);
+                                    }
+                                   }
+
+                                   .film-score {
+                                    content: "";
+                                    position: absolute;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: darkgoldenrod;
+                                    font-weight: bolder;
+                                    right: 0;
+                                    top: 0;
+                                    width: 42px;
+                                    height: 42px;
+                                    background-color: yellow;
+                                    border-radius: 50% 0 50% 50%;
+                                   }
+
+
+                        }
+        
+                    }
+
                     .film-node-body {
+                        position: relative;
                         display: grid;
                         grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 120px [node-extra] 250px;
                         grid-template-areas: "node-icon node-main node-stats node-extra";
                         border-bottom: 1px solid #555555;
                         box-sizing: border-box;
-                        padding: 10px 0;
+                        padding: 10px 5px;
                         min-height: 80px;
                         justify-content: center;
-                        gap: 10px;
-
+                        gap: 15px;
+                        
                         .node-icon {
                             grid-area: node-icon;
                             display: flex;
@@ -156,6 +212,23 @@ body {
                             display: flex;
                             align-items: center;
                             gap: 10px;
+                            padding: 5px;
+                           &::before {
+                            content: "";
+                            background-image: var(--resim);
+                            background-color: black;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            z-index: -1;
+                            opacity: 0.5;
+                            border-radius: 4px;
+                            filter: brightness(50%);
+                           }
                             .extra-user {
                                 img {
                                     width: 32px;
@@ -171,10 +244,12 @@ body {
                                     overflow: hidden; /* taşanları gizle */
                                     white-space: nowrap; /* alt satıra hiç inme */
                                     text-overflow: ellipsis;
-                                    color: #8c8c8c;
+                             
+                                    color: white;
                                 }
                                 .extra-last {
                                     font-size: 14px;
+                                    color: #8c8c8c;
                                 }
                             }
                         }

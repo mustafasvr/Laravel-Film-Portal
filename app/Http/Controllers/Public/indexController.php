@@ -15,20 +15,41 @@ class indexController extends Controller
      */
     public function index()
     {
-        $film = Film::with('FilmImages')->orderBy('id','desc')->limit(7)->get();
 
-        $filmlist = DB::table('ms_film')
-            ->join('ms_film_categories', function($join){
-                $join->on('ms_film.categories', 'LIKE', DB::raw("CONCAT('%', ms_film_categories.category_id, '%')"));
-            })
-            ->select('ms_film.title', DB::raw('GROUP_CONCAT(ms_film_categories.category_name SEPARATOR ", ") AS categories'))
-            ->groupBy('ms_film.id')
-            ->get();
-
+        $film = Film::with('FilmImages')->orderBy('release_date','desc')->limit(7)->get();
 
         $categories = FilmCategories::all();
 
-        return \view('Public.home',\compact('film','filmlist','categories'));
+        $kategori = [];
+
+        foreach($categories as $cat)
+        {
+            $filmc = Film::with('FilmImages')->orderBy('release_date','desc')->get();
+
+            foreach ($filmc as $key)
+            {
+                $explode = explode(',',$key->categories);        
+                if($have = in_array($cat->category_id,$explode))
+                {
+                    $kategori[$cat->category_url]['film'][] = $key;
+                    $kategori[$cat->category_url]['category'] = $cat;
+
+
+                    $kategori[$cat->category_url]['count'] =  [
+                        "sayi" => count($kategori[$cat->category_url]['film'])
+                    ];
+
+                } 
+
+           
+            
+            }
+         
+        }
+
+
+
+        return \view('Public.home',\compact('film','kategori'));
     }
 
     /**

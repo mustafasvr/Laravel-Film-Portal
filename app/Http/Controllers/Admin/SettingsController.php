@@ -140,6 +140,14 @@ class SettingsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Settings = Settings::where('settings_id',$id)->where('settings_delete',true)->delete();
+
+        if ($Settings) {
+            return redirect()->back()->with('success','Silme işlemi başarılı');
+            exit;
+        } else {
+            return redirect()->back()->with('success','Bir hata oluştu');
+            exit;
+        }
     }
 }

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Auth;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class UserModel extends Model
 {
     use HasFactory;
+
 
     protected $table = 'ms_user';
     protected $primaryKey = 'user_id';

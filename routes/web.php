@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\indexController;
 use App\Http\Controllers\Public\indexController as PublicIndexController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SettingsGroupController;
+use App\Http\Controllers\Public\categoriesController;
+use App\Http\Controllers\Public\Film\FilmDetailsController;
+use App\Models\Admin\Settings;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +25,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PublicIndexController::class, 'index'])->name('home');
 
 
+// Public
+
+Route::name('categories.')->group(function () {
+    Route::get('kategoriler/{group}', [categoriesController::class, 'index'])->name('index');
+});
+
+
+Route::name('film.')->group(function () {
+    Route::get('film/{name}.{id}', [FilmDetailsController::class, 'index'])->name('index');
+});
 
 
 
+
+
+
+
+
+
+
+// Admin 
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
@@ -38,6 +59,7 @@ Route::prefix('admin')->group(function () {
 
             Route::get('/settings/groups/{group}/create', [SettingsController::class, 'create'])->name('create');
             Route::post('/settings/create/add', [SettingsController::class, 'store'])->name('store');
+            Route::get('/settings/destroy/{id}', [SettingsController::class, 'destroy'])->name('destroy');
 
             Route::name('group.')->group(function () {
                 Route::get('/settings/group/create', [SettingsGroupController::class, 'create'])->name('create');
@@ -48,14 +70,11 @@ Route::prefix('admin')->group(function () {
             });
         });
 
-
         // FİLMLER
         Route::name('film.')->group(function () {
             Route::get('/film', [filmController::class, 'index'])->name('index');
             Route::get('/filmcek', [filmController::class, 'create'])->name('cek');
         });
-
-
 
         // KATEGORİLER
         Route::name('categories.')->group(function () {
@@ -65,6 +84,5 @@ Route::prefix('admin')->group(function () {
             Route::post('/categories/edit/update/{id}', [filmCategoryController::class, 'update'])->name('edit.update');
             Route::get('/categories/delete/{id}', [filmCategoryController::class, 'delete'])->name('delete');
         });
-        
     });
 });

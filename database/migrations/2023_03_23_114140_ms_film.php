@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ms_film', function (Blueprint $table) {
             $table->id('id')->autoIncrement();
             $table->integer('film_id')->unique();
+            $table->string('film_url');
             $table->string('title');
             $table->binary('content');
             $table->string('categories');

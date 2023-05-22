@@ -5,19 +5,32 @@ body {
 
     header {
         width: 100%;
+        margin: 10px 0; 
+
         .header-container {
             width: $container;
             margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             .header-logo {
+                box-sizing: border-box;
+                padding: 6px;
+                background-color: var(--paletteColor5);
+                color: white;
+                font-weight: bold;
+                border-radius: 4px;
                 a {
                     color: inherit;
                 }
-                color: white;
-                font-weight: bold;
+                h1 {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 25px;
+                }
             }
+
             .header-box {
                 img {
                     width: 50px;
@@ -38,8 +51,10 @@ body {
         .film-top-container {
             display: flex;
             flex-direction: column;
+
             .film-top-header {
                 margin-bottom: 7px;
+
                 h3 {
                     padding: 0;
                     margin: 0;
@@ -48,11 +63,13 @@ body {
                     font-size: 25px;
                 }
             }
+
             .film-top-body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 20px;
+
                 img {
                     border-radius: $borderRadius;
                 }
@@ -81,6 +98,7 @@ body {
             .film-node {
                 .film-node-container {
                     border: 2px solid var(--content);
+
                     .film-node-header {
                         color: whitesmoke;
                         display: flex;
@@ -90,11 +108,13 @@ body {
                         padding: 0 10px;
                         box-sizing: border-box;
                         background-color: var(--content);
+
                         .node-head {
                             padding: 0;
                             margin: 0;
                             font-size: 20px;
                         }
+
                         .node-desc {
                             font-size: 12px;
                         }
@@ -106,51 +126,52 @@ body {
                         gap: 10px;
                         display: grid;
                         grid-template-columns: 200px 200px 200px 200px;
-        
+
                         .film-categories-body {
                             position: relative;
                             width: 200px;
                             height: 300px;
 
-                                &::before {
-                                    content: "";
-                                    background-image: var(--resim);
-                                    position: absolute;
-                                    top: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    background-size: cover;
-                                    background-repeat: no-repeat;
-                                    z-index: -1;
-                                    border-radius: 4px;
-                                    filter: brightness(75%);
-                                   }
-                                   &:hover {
-                                    &::before {
-                                        filter: brightness(100%);
-                                    }
-                                   }
+                            &::before {
+                                content: "";
+                                background-image: var(--resim);
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                z-index: -1;
+                                border-radius: 4px;
+                                filter: brightness(75%);
+                            }
 
-                                   .film-score {
-                                    content: "";
-                                    position: absolute;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    color: darkgoldenrod;
-                                    font-weight: bolder;
-                                    right: 0;
-                                    top: 0;
-                                    width: 42px;
-                                    height: 42px;
-                                    background-color: yellow;
-                                    border-radius: 50% 0 50% 50%;
-                                   }
+                            &:hover {
+                                &::before {
+                                    filter: brightness(100%);
+                                }
+                            }
+
+                            .film-score {
+                                content: "";
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: darkgoldenrod;
+                                font-weight: bolder;
+                                right: 0;
+                                top: 0;
+                                width: 42px;
+                                height: 42px;
+                                background-color: yellow;
+                                border-radius: 50% 0 50% 50%;
+                            }
 
 
                         }
-        
+
                     }
 
                     .film-node-body {
@@ -164,7 +185,7 @@ body {
                         min-height: 80px;
                         justify-content: center;
                         gap: 15px;
-                        
+
                         .node-icon {
                             grid-area: node-icon;
                             display: flex;
@@ -174,18 +195,22 @@ body {
                             color: #8c8c8c;
                             font-size: 32px;
                         }
+
                         .node-main {
                             grid-area: node-main;
+
                             .main-head {
                                 font-size: 17px;
                                 font-weight: bold;
                                 color: aliceblue;
                             }
+
                             .main-body {
                                 font-size: 12px;
                                 color: #8c8c8c;
                             }
                         }
+
                         .node-stats {
                             grid-area: node-stats;
                             display: flex;
@@ -193,19 +218,23 @@ body {
                             justify-content: center;
                             text-align: center;
                             gap: 10px;
+
                             .node-stats-item {
                                 box-sizing: border-box;
                                 background-color: #555555;
                                 padding: 10px;
                                 border-radius: $borderRadius;
+
                                 div {
                                     font-size: 12px;
                                 }
+
                                 span {
                                     font-size: 15px;
                                 }
                             }
                         }
+
                         .node-extra {
                             position: relative;
                             grid-area: node-extra;
@@ -213,40 +242,47 @@ body {
                             align-items: center;
                             gap: 10px;
                             padding: 5px;
-                           &::before {
-                            content: "";
-                            background-image: var(--resim);
-                            background-color: black;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            z-index: -1;
-                            opacity: 0.5;
-                            border-radius: 4px;
-                            filter: brightness(50%);
-                           }
+
+                            &::before {
+                                content: "";
+                                background-image: var(--resim);
+                                background-color: black;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                z-index: -1;
+                                opacity: 0.5;
+                                border-radius: 4px;
+                                filter: brightness(50%);
+                            }
+
                             .extra-user {
                                 img {
                                     width: 32px;
                                     border-radius: 50%;
                                 }
                             }
+
                             .extra-body {
                                 display: flex;
                                 flex-direction: column;
                                 gap: 5px;
+
                                 .extra-title {
                                     width: 200px;
-                                    overflow: hidden; /* taşanları gizle */
-                                    white-space: nowrap; /* alt satıra hiç inme */
+                                    overflow: hidden;
+                                    /* taşanları gizle */
+                                    white-space: nowrap;
+                                    /* alt satıra hiç inme */
                                     text-overflow: ellipsis;
-                             
+
                                     color: white;
                                 }
+
                                 .extra-last {
                                     font-size: 14px;
                                     color: #8c8c8c;
@@ -267,4 +303,138 @@ body {
             border-radius: $borderRadius;
         }
     }
+
+    .film-container {
+        position: relative;
+        width: $container;
+        margin: auto;
+
+        .film-inner {
+            position: relative;
+            background-color: var(--content);
+            border-radius: 7px;
+            padding: 5px;
+
+            .film-head {
+                box-sizing: border-box;
+                width: 100%;
+                height: 500px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-image: var(--resim);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 100%;
+                    z-index: 1;
+                    height: 100%;
+                    opacity: 0.8;
+                    border-radius: 7px;
+                    filter: brightness(50%);
+                }
+                .film-title {
+                    padding: 0px 20px;
+                    font-size: 32px;
+                    color: white;
+                    z-index: 2;
+                }
+            }
+
+            .film-body {
+                min-height: 50vh;
+                display: grid;
+                grid-template-columns: [Main] 1fr [Sidebar] 325px;
+                grid-template-areas: "Main Sidebar";
+                gap: 20px;
+
+                .film-main {
+                    padding: 10px;
+                    grid-area: Main;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    box-sizing: border-box;
+                    color: rgba($contentBg,0.5);  
+
+                    .film-comment {
+                        position: relative;
+                        h1 {
+                            color: white;
+                        }
+                        textarea {
+                            box-sizing: border-box;
+                            width: 100%;
+                            min-height: 200px;
+                            background-color: rgba($contentBg,0.2);  
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            padding: 10px;
+                            resize: none;
+                            margin-bottom: $marginS;
+                            &:hover,
+                            &:focus,
+                            &:focus-visible,
+                            &:focus-within {
+                                border: none;
+                                outline: 0;
+                            }
+                            &::placeholder {
+                                color: white;
+                            }
+                        }
+                        button {
+                            float: right;
+
+                        }
+                    }
+
+                }
+                .film-sidebar {
+                    grid-area: Sidebar;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: var(--content);
+                    border-radius: $borderRadius;
+                    padding: $paddingS;
+                    text-align: left;
+                    color: rgba($contentBg,0.5);       
+                    dl,
+                    dt,
+                    dd {
+                        margin: 8px 0;
+                    }       
+                    dd {
+                        color: white;
+                        margin-inline-start: 5px;
+                        a {
+                            color: inherit;
+                            &:hover {
+                                color: whitesmoke;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+    }
+
+
+    footer {
+        margin: 20px 0;
+        width: 100%;
+        height: 250px;
+        text-align: center;
+        color: white;
+    }
+
+
 }

@@ -6,7 +6,7 @@
 
     <div class="film-top-container">
         <div class="film-top-header">
-            <h3>Trendler</h3>
+            <h3>Son Eklenenler</h3>
         </div>
         <div class="film-top-body">
 
@@ -25,7 +25,6 @@
 </section>
 
 <section class="film-portal">
-
     <div class="film-portal-main">
 
         <section class="film-node">

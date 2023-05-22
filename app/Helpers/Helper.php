@@ -18,5 +18,11 @@ class Helper
     }
 
 
+    public static function isLatinAlphabet($text) {
+        $regex = '/^[\p{Latin}ÇçĞğİıÖöŞşÜü\p{P}\p{S}\p{Z}]+$/u';
+        return preg_match($regex, $text) === 1;
+    }
+
+
 
 }

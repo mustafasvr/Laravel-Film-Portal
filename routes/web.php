@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\filmCategoryController;
+use App\Models\Admin\Settings;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\filmController;
 use App\Http\Controllers\Admin\indexController;
-use App\Http\Controllers\Public\indexController as PublicIndexController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\SettingsGroupController;
 use App\Http\Controllers\Public\categoriesController;
+use App\Http\Controllers\Admin\filmCategoryController;
+use App\Http\Controllers\Admin\SettingsGroupController;
 use App\Http\Controllers\Public\Film\FilmDetailsController;
-use App\Models\Admin\Settings;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Public\indexController as PublicIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Auth::routes();
 
 Route::get('/', [PublicIndexController::class, 'index'])->name('home');
 
@@ -38,17 +41,11 @@ Route::name('film.')->group(function () {
 
 
 
-
-
-
-
-
-
-
 // Admin 
 
 Route::prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
+        Route::middleware('auth','admin.control')->group(function () {
         Route::get('/', [indexController::class, 'index'])->name('index');
 
         // AYARLAR
@@ -85,4 +82,5 @@ Route::prefix('admin')->group(function () {
             Route::get('/categories/delete/{id}', [filmCategoryController::class, 'delete'])->name('delete');
         });
     });
+});
 });

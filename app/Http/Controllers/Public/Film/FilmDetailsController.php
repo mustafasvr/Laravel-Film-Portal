@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Public\Film;
 
 use App\Http\Controllers\Controller;
+use App\Models\Film;
+use App\Models\FilmCategories;
 use Illuminate\Http\Request;
 
 class FilmDetailsController extends Controller
@@ -10,9 +12,27 @@ class FilmDetailsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('Public.Film.index');
+
+        $id = $request->route('id');
+
+        $film = Film::with('FilmImages')->where('film_id',$id)->first();
+
+
+        $explode = explode(',',$film->categories);     
+        
+        $categories = [];
+
+        
+        foreach ($explode as $key)
+        {
+            $cat =  FilmCategories::where('category_id',$key)->first();
+            $categories[$cat->category_name] = $cat;
+
+        }
+
+        return view('Public.Film.index',compact('film','categories'));
     }
 
     /**

@@ -1,11 +1,12 @@
 @import "../root";
+@import "../alert";
 
 body {
     background-color: var(--background);
 
     header {
         width: 100%;
-        margin: 10px 0; 
+        margin: 10px 0;
 
         .header-container {
             width: $container;
@@ -16,18 +17,26 @@ body {
 
             .header-logo {
                 box-sizing: border-box;
-                padding: 6px;
-                background-color: var(--paletteColor5);
+                padding: $paddingXS;
                 color: white;
                 font-weight: bold;
-                border-radius: 4px;
+                border-radius: $borderRadius;
+
+                img {
+                    width: 200px;
+                    height: auto;
+                }
+
                 a {
                     color: inherit;
                 }
+
                 h1 {
-                    padding: 0;
+                    padding: $paddingXS;
+                    background-color: var(--paletteColor5);
                     margin: 0;
                     font-size: 25px;
+                    border-radius: $borderRadius;
                 }
             }
 
@@ -84,7 +93,7 @@ body {
         grid-template-columns: [Main] 1fr [Sidebar] 325px;
         grid-template-areas: "Main Sidebar";
         gap: 20px;
-        padding: 5px;
+        padding: $paddingXS;
         box-sizing: border-box;
 
         .film-portal-main {
@@ -122,7 +131,7 @@ body {
 
 
                     .film-portal-categories {
-                        padding: 5px;
+                        padding: $paddingXS;
                         gap: 10px;
                         display: grid;
                         grid-template-columns: 200px 200px 200px 200px;
@@ -143,7 +152,7 @@ body {
                                 background-size: cover;
                                 background-repeat: no-repeat;
                                 z-index: -1;
-                                border-radius: 4px;
+                                border-radius: $borderRadius;
                                 filter: brightness(75%);
                             }
 
@@ -177,7 +186,7 @@ body {
                     .film-node-body {
                         position: relative;
                         display: grid;
-                        grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 120px [node-extra] 250px;
+                        grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 60px [node-extra] 250px;
                         grid-template-areas: "node-icon node-main node-stats node-extra";
                         border-bottom: 1px solid #555555;
                         box-sizing: border-box;
@@ -241,7 +250,7 @@ body {
                             display: flex;
                             align-items: center;
                             gap: 10px;
-                            padding: 5px;
+                            padding: $paddingXS;
 
                             &::before {
                                 content: "";
@@ -256,7 +265,7 @@ body {
                                 background-repeat: no-repeat;
                                 z-index: -1;
                                 opacity: 0.5;
-                                border-radius: 4px;
+                                border-radius: $borderRadius;
                                 filter: brightness(50%);
                             }
 
@@ -313,7 +322,7 @@ body {
             position: relative;
             background-color: var(--content);
             border-radius: 7px;
-            padding: 5px;
+            padding: $paddingXS;
 
             .film-head {
                 box-sizing: border-box;
@@ -338,6 +347,7 @@ body {
                     border-radius: 7px;
                     filter: brightness(50%);
                 }
+
                 .film-title {
                     padding: 0px 20px;
                     font-size: 32px;
@@ -360,24 +370,27 @@ body {
                     flex-direction: column;
                     height: 100%;
                     box-sizing: border-box;
-                    color: rgba($contentBg,0.5);  
+                    color: rgba($contentBg, 0.5);
 
                     .film-comment {
                         position: relative;
+
                         h1 {
                             color: white;
                         }
+
                         textarea {
                             box-sizing: border-box;
                             width: 100%;
                             min-height: 200px;
-                            background-color: rgba($contentBg,0.2);  
+                            background-color: rgba($contentBg, 0.2);
                             color: white;
                             border: none;
-                            border-radius: 4px;
+                            border-radius: $borderRadius;
                             padding: 10px;
                             resize: none;
                             margin-bottom: $marginS;
+
                             &:hover,
                             &:focus,
                             &:focus-visible,
@@ -385,17 +398,64 @@ body {
                                 border: none;
                                 outline: 0;
                             }
+
                             &::placeholder {
                                 color: white;
                             }
                         }
+
                         button {
                             float: right;
 
                         }
+
+
+
                     }
 
+
+                    .film-comments {
+                        .film-comments-box {
+                            display: table;
+                            table-layout: fixed;
+                            width: 100%;
+                            margin: 0;
+                            position: relative;
+
+                            .film-comments-box-image {
+                                display: table-cell;
+                                vertical-align: top;
+                                text-align: left;
+                                padding: $paddingS;
+                                width: 40px;
+
+                                img {
+                                    border-radius: 50%;
+                                    width: 48px;
+                                    height: 48px;
+                                }
+                            }
+
+                            .film-comments-box-body {
+                                box-sizing: border-box;
+                                display: table-cell;
+                                vertical-align: top;
+                                align-items: center;
+                                padding: $paddingS $paddingS;
+                                gap: 5px;
+
+                                .username {
+                                    font-weight: 600;
+                                    color: white;
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+
+
                 }
+
                 .film-sidebar {
                     grid-area: Sidebar;
                     display: flex;
@@ -404,17 +464,21 @@ body {
                     border-radius: $borderRadius;
                     padding: $paddingS;
                     text-align: left;
-                    color: rgba($contentBg,0.5);       
+                    color: rgba($contentBg, 0.5);
+
                     dl,
                     dt,
                     dd {
                         margin: 8px 0;
-                    }       
+                    }
+
                     dd {
                         color: white;
                         margin-inline-start: 5px;
+
                         a {
                             color: inherit;
+
                             &:hover {
                                 color: whitesmoke;
                             }
@@ -424,6 +488,11 @@ body {
 
             }
 
+
+
+
+
+
         }
     }
 
@@ -431,10 +500,61 @@ body {
     footer {
         margin: 20px 0;
         width: 100%;
-        height: 250px;
         text-align: center;
         color: white;
+        font-size: 15px;
     }
 
+
+    .auth-container {
+        width: $container;
+        margin: auto;
+        height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .auth-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-radius: 7px;
+            rotate: -200px;
+
+            .auth-box {
+                display: flex;
+                position: relative;
+                box-sizing: border-box;
+                padding: 50px 20px;
+                border-radius: 20px;
+                min-height: 50vh;
+                width: 600px;
+                background-color: var(--content);
+                flex-direction: column;
+                align-items: center;
+                box-shadow: var(--paletteColor3) 0px 0px 10px;
+                gap: 10px;
+
+                img {
+                    max-width: 350px;
+                }
+
+                .auth-body {
+                    display: flex;
+                    flex-direction: row;
+
+                    input {
+                        width: 450px;
+                        padding: 10px;
+                    }
+
+                    button {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
 
 }

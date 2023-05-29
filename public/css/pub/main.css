@@ -68,6 +68,37 @@ body a:hover {
   color: var(--linkHoverColor);
 }
 
+.alert {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  min-height: 48px;
+  border-radius: 4px;
+  border: 1px solid var(--background);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: var(--background);
+}
+.alert.alert-info {
+  background-color: #FFCC00;
+  color: black;
+}
+.alert.alert-success {
+  background-color: green;
+  color: white;
+}
+.alert.alert-error {
+  background-color: red;
+  color: white;
+}
+.alert a {
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 5px;
+}
+
 body {
   background-color: var(--background);
 }
@@ -84,19 +115,24 @@ body header .header-container {
 }
 body header .header-container .header-logo {
   box-sizing: border-box;
-  padding: 6px;
-  background-color: var(--paletteColor5);
+  padding: 5px;
   color: white;
   font-weight: bold;
   border-radius: 4px;
+}
+body header .header-container .header-logo img {
+  width: 200px;
+  height: auto;
 }
 body header .header-container .header-logo a {
   color: inherit;
 }
 body header .header-container .header-logo h1 {
-  padding: 0;
+  padding: 5px;
+  background-color: var(--paletteColor5);
   margin: 0;
   font-size: 25px;
+  border-radius: 4px;
 }
 body header .header-container .header-box img {
   width: 50px;
@@ -217,7 +253,7 @@ body .film-portal .film-portal-main .film-node .film-node-container .film-portal
 body .film-portal .film-portal-main .film-node .film-node-container .film-node-body {
   position: relative;
   display: grid;
-  grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 120px [node-extra] 250px;
+  grid-template-columns: [node-icon] 50px [node-main] 1fr [node-stats] 60px [node-extra] 250px;
   grid-template-areas: "node-icon node-main node-stats node-extra";
   border-bottom: 1px solid #555555;
   box-sizing: border-box;
@@ -408,6 +444,38 @@ body .film-container .film-inner .film-body .film-main .film-comment textarea::p
 body .film-container .film-inner .film-body .film-main .film-comment button {
   float: right;
 }
+body .film-container .film-inner .film-body .film-main .film-comments .film-comments-box {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+body .film-container .film-inner .film-body .film-main .film-comments .film-comments-box .film-comments-box-image {
+  display: table-cell;
+  vertical-align: top;
+  text-align: left;
+  padding: 10px;
+  width: 40px;
+}
+body .film-container .film-inner .film-body .film-main .film-comments .film-comments-box .film-comments-box-image img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+body .film-container .film-inner .film-body .film-main .film-comments .film-comments-box .film-comments-box-body {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: top;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 5px;
+}
+body .film-container .film-inner .film-body .film-main .film-comments .film-comments-box .film-comments-box-body .username {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+}
 body .film-container .film-inner .film-body .film-sidebar {
   grid-area: Sidebar;
   display: flex;
@@ -437,7 +505,51 @@ body .film-container .film-inner .film-body .film-sidebar dd a:hover {
 body footer {
   margin: 20px 0;
   width: 100%;
-  height: 250px;
   text-align: center;
   color: white;
+  font-size: 15px;
+}
+body .auth-container {
+  width: 1200px;
+  margin: auto;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .auth-container .auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 7px;
+  rotate: -200px;
+}
+body .auth-container .auth-wrapper .auth-box {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  padding: 50px 20px;
+  border-radius: 20px;
+  min-height: 50vh;
+  width: 600px;
+  background-color: var(--content);
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--paletteColor3) 0px 0px 10px;
+  gap: 10px;
+}
+body .auth-container .auth-wrapper .auth-box img {
+  max-width: 350px;
+}
+body .auth-container .auth-wrapper .auth-box .auth-body {
+  display: flex;
+  flex-direction: row;
+}
+body .auth-container .auth-wrapper .auth-box .auth-body input {
+  width: 450px;
+  padding: 10px;
+}
+body .auth-container .auth-wrapper .auth-box .auth-body button {
+  float: right;
 }/*# sourceMappingURL=main.css.map */

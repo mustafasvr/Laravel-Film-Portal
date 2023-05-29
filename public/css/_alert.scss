@@ -1,0 +1,32 @@
+.alert {
+    position: relative;
+    box-sizing: border-box;
+    padding: $paddingS;
+    width: 100%;
+    min-height: 48px;
+    border-radius: 4px;
+    border: 1px solid var(--background);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: var(--background);
+
+    &.alert-info {
+        background-color: #FFCC00;
+        color: black;
+    }
+    &.alert-success {
+        background-color: green;
+        color: white;
+    }
+    &.alert-error {
+        background-color: red;
+        color: white;
+    }
+    a {
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0 5px;
+    }
+    
+}

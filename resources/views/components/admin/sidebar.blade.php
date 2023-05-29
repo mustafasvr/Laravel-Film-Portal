@@ -19,6 +19,10 @@
                 <i class="fas fa-chess"></i>
               Kategoriler</li></a>
 
+              <a href="{{ route('admin.user.index') }}"><li>
+                <i class="fas fa-users"></i>
+              Kullanıcılar</li></a>
+
               <a href="{{ route('admin.settings.index') }}"><li>
                 <i class="fas fa-cog"></i>
               Ayarlar</li></a>

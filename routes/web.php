@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Admin\Settings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\filmController;
@@ -9,6 +8,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Public\categoriesController;
 use App\Http\Controllers\Admin\filmCategoryController;
 use App\Http\Controllers\Admin\SettingsGroupController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Public\Film\FilmDetailsController;
 use App\Http\Controllers\Public\indexController as PublicIndexController;
 
@@ -37,6 +37,7 @@ Route::name('categories.')->group(function () {
 
 Route::name('film.')->group(function () {
     Route::get('film/{name}.{id}', [FilmDetailsController::class, 'index'])->name('index');
+    Route::post('film/{name}.{id}/add-reply', [FilmDetailsController::class, 'store'])->name('comment');
 });
 
 
@@ -52,7 +53,7 @@ Route::prefix('admin')->group(function () {
         Route::name('settings.')->group(function () {
             Route::get('/settings', [SettingsGroupController::class, 'index'])->name('index');
             Route::get('/settings/groups/{group}', [SettingsController::class, 'index'])->name('group');
-            Route::get('/settings/groups/{group}/update', [SettingsController::class, 'update'])->name('update');
+            Route::post('/settings/groups/{group}/update', [SettingsController::class, 'update'])->name('update');
 
             Route::get('/settings/groups/{group}/create', [SettingsController::class, 'create'])->name('create');
             Route::post('/settings/create/add', [SettingsController::class, 'store'])->name('store');
@@ -81,6 +82,18 @@ Route::prefix('admin')->group(function () {
             Route::post('/categories/edit/update/{id}', [filmCategoryController::class, 'update'])->name('edit.update');
             Route::get('/categories/delete/{id}', [filmCategoryController::class, 'delete'])->name('delete');
         });
+
+
+                // KULLANICILAR
+                Route::name('user.')->group(function () {
+                    Route::get('/user', [UserController::class, 'index'])->name('index');
+                    Route::get('/user/insert', [UserController::class, 'create'])->name('insert');
+                    Route::get('/user/edit/{name}.{id}', [UserController::class, 'edit'])->name('edit');
+                    Route::post('/user/edit/update/{name}.{id}', [UserController::class, 'update'])->name('edit.update');
+                    Route::get('/user/delete/{name}.{id}', [UserController::class, 'destroy'])->name('delete');
+                });
+
+
     });
 });
 });

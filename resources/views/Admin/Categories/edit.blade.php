@@ -12,40 +12,50 @@
 </section>
 
 
+<section class="content-body">
 
 
-<section class="content-body content-row">
-
-    <form action="{{route('admin.categories.edit.update',['id' => $category->category_id ])}}" method="POST" enctype="multipart/form-data">
+    <div class="formRow">
+        <form action="{{route('admin.categories.edit.update',['id' => $category->category_id ])}}" method="POST"
+            enctype="multipart/form-data">
         @csrf
-        <div class="card-body">
-            <div class="form-group">
-                <label for="exampleInputuser">Kategori</label>
-                <input type="text" class="form-control"  name="category_name" value="{{ $category->category_name }}">
-            </div>
+        <div class="formRow-body">
 
-            <div class="form-group">
-                <label for="exampleInputEmail1">Kategori Açıklama</label>
-                <textarea name="category_desc" id="summernote">{{ $category->category_desc }}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Kategori İcon <i class="{{ $category->category_icon }}"></i></label>
-                <input type="text" class="form-control"  name="category_icon" value="{{ $category->category_icon }}">
+            <dl>
+                <dt><label>Kategori</label></dt>
+                <dd><input type="text" class="form-control"  name="category_name" value="{{ $category->category_name }}"></dd>
+            </dl>
+            <dl>
+                <dt><label>Kategori Açıklama</label></dt>
+                <dd><textarea rows="5" name="category_desc" id="summernote">{{ $category->category_desc }}</textarea></dd>
+            </dl>
+            <dl>
+                <dt><label>Kategori İcon <i class="{{ $category->category_icon }}"></i></label></dt>
+                <dd> <input type="text" class="form-control"  name="category_icon" value="{{ $category->category_icon }}"></dd>
+            </dl>
+            <dl>
+                <dt><label>Kategori Durum</label></dt>
+                <dd><select name="category_status" class="form-control">
+                    <option value="0">Pasif</option>
+                    <option value="1">Aktif</option>
+                </select></dd>
+            </dl>
 
-            </div>
 
-            <select name="category_status" class="form-control">
-                <option value="0">Pasif</option>
-                <option value="1">Aktif</option>
-            </select>
-        </div>
-
-
-        <div class="card-footer">
-            <div class="float-right">                <button type="submit" class="btn btn-warning text-white">Kaydet</button></div>
-
-        </div>
+    </div>
+    <div class="formRow-footer">
+        <button  class="button--primary" type="submit">Kaydet</button>
+    </div>
     </form>
+    </div>
+
+
+
+
+</section>
+
+
+
 
 
 </section>

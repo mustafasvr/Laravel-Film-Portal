@@ -17,7 +17,7 @@
         <div class="formRow-header">
             <h1>{{ $groups->group_name }}</h1>
         </div>
-    <form action="{{ route('admin.settings.update',['group' => $groups->group_url ]) }}">
+    <form method="post" action="{{ route('admin.settings.update',['group' => $groups->group_url ]) }}" enctype="multipart/form-data">
         @csrf
         <div class="formRow-body">
         @foreach ($settings as $item)
@@ -29,8 +29,9 @@
                     @elseif($item->settings_type == 'color')
                     <input type="color" name="{{ $item->settings_name }}"   value="{{ $item->settings_value }}">
                     @elseif($item->settings_type == 'file')
+
                     @if (isset($item->settings_value))
-                    <img src="{{ $item->settings_value }}" alt="{{ $item->settings_name }}">
+                    <img width="100px" height="56px" src="{{  asset('images/'.$groups->group_url.'/'.$item->settings_value) }}" alt="{{ $item->settings_name }}">
                     @endif
                     <input type="file" name="{{ $item->settings_name }}"   value="{{ $item->settings_value }}">
                     @elseif($item->settings_type == 'textarea')

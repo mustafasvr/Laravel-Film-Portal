@@ -11,7 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'ms_user';
     protected $primaryKey = 'user_id';
     public $timestamps = false;
 
@@ -24,9 +23,12 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'token',
+        'picture',
         'register_date',
         'last_activity',
         'ip_address',
+
     ];
 
     /**

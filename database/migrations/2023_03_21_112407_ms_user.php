@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ms_user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
 
-            $table->id('user_id')->autoIncrement();
+            $table->integer('user_id')->autoIncrement();
             $table->string('username', 32)->unique();
             $table->string('email')->unique();
             $table->binary('password');
             $table->binary('picture')->nullable();
             $table->enum('permission', ['user', 'admin', 'banned'])->default('user');
             $table->binary('token')->nullable();
+            $table->binary('remember_token')->nullable();
             $table->integer('register_date');
             $table->integer('last_activity');
             $table->ipAddress('ip_address');

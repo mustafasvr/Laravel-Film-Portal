@@ -145,6 +145,10 @@ body a:hover {
   text-align: center;
   font-size: 125%;
 }
+.admin-table .admin-table-tr .admin-table-icon img {
+  width: 36px;
+  border-radius: 50%;
+}
 .admin-table .admin-table-tr .admin-table-tool {
   margin-left: auto;
   margin-right: 5px;
@@ -288,7 +292,7 @@ body .main-container main .content .content-header .ch-right {
   margin-left: auto;
 }
 body .main-container main .content .content-body {
-  background-color: var(--contentBg);
+  background-color: #fefefe;
   border-radius: 4px;
 }
 body .main-container main .content .content-body.content-row {

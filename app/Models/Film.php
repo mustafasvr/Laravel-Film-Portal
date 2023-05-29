@@ -21,6 +21,11 @@ class Film extends Model
     }
 
 
+    public function filmComment()
+    {
+        return $this->hasOne(FilmComment::class,'film_id','film_id');
+    }
+
 
 
 

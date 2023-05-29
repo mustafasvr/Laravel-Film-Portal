@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Helper;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Film;
 use App\Models\FilmImages;
 use Illuminate\Support\Facades\Http;
-
-use function GuzzleHttp\json_encode;
 
 class filmController extends Controller
 {

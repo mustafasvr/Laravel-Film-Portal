@@ -1,5 +1,5 @@
 @extends('Public.layout')
-
+@section('title',$kategori->category_name.' | '.config('settings.title'))
 @section('main')
 
 

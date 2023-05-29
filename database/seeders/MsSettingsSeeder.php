@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Admin\Settings;
 use App\Models\Admin\SettingsGroup;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MsSettingsSeeder extends Seeder
@@ -19,6 +18,14 @@ class MsSettingsSeeder extends Seeder
         $seo_id = SettingsGroup::where('group_url','seo')->first();
         $options_id = SettingsGroup::where('group_url','options')->first();
 
+
+        Settings::create([
+            'group_id' => $options_id->group_id,
+            'settings_name' => 'logo-text',
+            'settings_value' => true,
+            'settings_type' => 'boolen',
+            'settings_delete' => false,
+        ]);
 
         Settings::create([
             'group_id' => $options_id->group_id,
@@ -110,12 +117,6 @@ class MsSettingsSeeder extends Seeder
             'settings_type' => 'text',
             'settings_delete' => false,
         ]);
-
-
-
-
-
-
 
       
 

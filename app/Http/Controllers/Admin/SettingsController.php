@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Helper;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 use App\Models\Admin\Settings;
 use App\Models\Admin\SettingsGroup;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImageController;
+use Illuminate\Support\Facades\Validator;
 
 class SettingsController extends Controller
 {
@@ -102,28 +103,54 @@ class SettingsController extends Controller
     public function update(Request $request, string $id)
     {
         
-
         $group = $request->route('group');
+        $settingsGroup = SettingsGroup::where('group_url',$group)->first();
 
-        if(SettingsGroup::where('group_url',$group)->first())
+        if($settingsGroup)
         {
+
           $inputData = $request->except(['_token']);
+
+
 
             foreach($inputData as $key => $value)
             {
 
-                $averi = Settings::where('settings_name',$key)->first();
                 
+             
+                    $averi = Settings::where('settings_name',$key)->first();
+            
+                    if($averi->settings_value != $value)
+                    {
+    
+                        if ($request->file()) {
 
-                if($averi->settings_value != $value)
-                {
-                    Settings::where('settings_id',$averi->settings_id)->update(
-                        [
-                            'settings_value' => $value,
-                        ],
-                    );
-                }
-                
+
+                            ImageController::ImageDelete($averi->settings_value,$settingsGroup->group_url);
+                            $imageController = ImageController::ImageUpload($request->$key,$settingsGroup->group_url);
+    
+                            Settings::where('settings_id',$averi->settings_id)->update(
+                                [
+                                    'settings_value' => $imageController,
+                                ],
+                            );
+    
+                            $inputData = $request->except([$key.'-delete']);
+    
+                        } else {
+    
+                            Settings::where('settings_id',$averi->settings_id)->update(
+                                [
+                                    'settings_value' => $value,
+                                ],
+                            );
+    
+                        }
+    
+    
+                    }
+
+                          
             }
 
             return redirect()->back();

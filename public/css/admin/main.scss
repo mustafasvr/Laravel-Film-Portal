@@ -56,7 +56,7 @@ body {
                     }
                 }
                 .content-body {
-                    background-color: var(--contentBg);
+                    background-color: $contentBg;
                     border-radius: $borderRadius;
                     &.content-row {
                         padding: $paddingS;

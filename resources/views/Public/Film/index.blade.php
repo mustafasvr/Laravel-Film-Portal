@@ -74,7 +74,22 @@
                 <textarea name="comment" placeholder="Lütfen spoiler vermeden film hakkındaki görüşlerinizi giriniz." id=""></textarea>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->token }}">
                 <div>
-                Filmi şimdi değerlendir.
+                    @if ($vote != null)
+                        Daha önce oy kullandınız.
+                    @else
+                    Filmi şimdi değerlendir. <select name="comment_vote" >
+                        <option readonly selected value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select> / 5
+                    @endif
+                
+                
+                
+           
             </div>
 
                 <button>Yorum Gönder</button>
@@ -107,6 +122,23 @@
 
         </div>
         <div class="film-sidebar">
+
+            @if ($voteS)
+            <dl class="imdb">
+                <dt>Site içi değerlendirme</dt>
+                <dd title="Ortalama oy oranı: {{ $voteS }}">
+                    @for ($i = 1; $i <= 5; $i++)
+                    @if ($i <= $voteS)
+                       <i class="fas fa-star"></i>
+                    @else
+                        <i class="far fa-star"></i>
+                    @endif
+                @endfor
+
+               <span title="Oy kullan kişi sayısı"> ({{ $voteC }})</span></dd>
+            </dl>
+            @endif
+          
 
         <dl class="imdb">
             <dt>IMDB Puanı</dt>

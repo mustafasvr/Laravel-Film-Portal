@@ -37,17 +37,51 @@
         <div class="header-box">
 
 
-            {{ Auth::user()->username }}
+            <div class="user-box">
 
-            <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-              <img src="{{ asset('images/user/'.Auth::user()->picture) }}" alt="">
-         </a>
 
+                <div class="dropdown-menu">
+                    <span tabindex="1"><img class="user-image" src="{{ asset('images/user/'.Auth::user()->picture) }}" alt="menu"></span>
+                    <div class="dropdown-body user-body" tabindex="1">
+                        <div class="dropdown-header">
+                            <img src="{{ asset('images/user/'.Auth::user()->picture) }}" alt="">
+                            <div class="user-card-container">
+                                <div class="user-card-name">{{ Auth::user()->username }}</div>
+                                <span class="user-card-mail">{{ Auth::user()->email }}</span>
+                            </div>
+
+
+
+                        </div>
+                        <ul>
+                            @if (Auth::user()->permission == 'admin')
+                            <li><a href="{{ route('admin.index') }}"><i class="far fa-pen-to-square"></i>
+                                Yönetici Panel</a></li>
+                            @endif
+                                      
+                                                                            <li><a href="{{ route('profile.index') }}"><i class="far fa-user-circle"></i>
+                                    Profil bilgileri</a></li>
+                           
+
+                            <li>
+                
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                               <i class="fas fa-sign-out-alt"></i>   Çıkış yap
+                             </a>
+
+                             
          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-             @csrf
-         </form>
+            @csrf
+        </form>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         </div>
         @endauth

@@ -72,7 +72,12 @@
                         <div class="node-extra" style="--resim: url({{ $item['film'][0]->FilmImages->backdrops }})">
 
                             <div class="extra-user">
-                                <img src="https://lh3.googleusercontent.com/a/AGNmyxaCSPLT0gdZ2RwQjAkvzDk9Mzs69Y5EG_HfYZan=s288-mo" alt="">
+
+                                @if ($item['film'][0]->filmComment != null)
+                                <img src="{{ asset('images/user/'.$item['film'][0]->filmComment->user->picture) }}" alt="">
+                                @endif
+
+                             
                             </div>
                             <div class="extra-body">
                                 <div class="extra-title"><a href="{{ route('film.index',['name' => $item['film'][0]->film_url,'id' => $item['film'][0]->film_id]) }}">{{ $item['film'][0]->title }}</a></div>
@@ -80,10 +85,15 @@
 
                                     @php
                                     $dates = Carbon::parse($item['film'][0]->release_date);
+                                
                                     @endphp
-                                    
-                                   {{ $dates->diffForHumans() }} - Root
-
+                                      @if ($item['film'][0]->filmComment != null)
+                                      @php   $commentdatas = Carbon::parse($item['film'][0]->filmComment->created_at);  @endphp
+                                      {{ $item['film'][0]->filmComment->user->username }} - {{ $commentdatas->diffForHumans() }} 
+                                      @else 
+                                      {{ $dates->diffForHumans() }} 
+                                      @endif
+                                      
                                 </div>
                             </div>
 

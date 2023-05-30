@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Public\Film;
 
-use App\Http\Controllers\Controller;
 use App\Models\Film;
-use App\Models\FilmCategories;
-use App\Models\FilmComment;
 use App\Models\User;
+use App\Models\FilmVote;
+use App\Models\FilmComment;
 use Illuminate\Http\Request;
+use App\Models\FilmCategories;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FilmDetailsController extends Controller
 {
@@ -20,6 +22,12 @@ class FilmDetailsController extends Controller
         $id = $request->route('id');
 
         $film = Film::with('FilmImages')->where('film_id', $id)->first();
+
+
+  
+
+        $voteC = FilmVote::where('film_id',$id)->count();
+        $voteS = FilmVote::where('film_id',$id)->avg('vote_score');
 
 
         $explode = explode(',', $film->categories);
@@ -37,8 +45,13 @@ class FilmDetailsController extends Controller
         $comments = FilmComment::with('User')->where('film_id', $id)->get();
 
 
+        if(Auth::user()) {
+            $vote = FilmVote::where('film_id',$id)->where('user_id',Auth::user()->user_id)->first();
+            return view('Public.Film.index', compact('film', 'categories', 'comment', 'comments','vote','voteC','voteS'));
+        } else {
+            return view('Public.Film.index', compact('film', 'categories', 'comment', 'comments','voteC','voteS'));
+        }
 
-        return view('Public.Film.index', compact('film', 'categories', 'comment', 'comments'));
     }
 
     /**
@@ -54,18 +67,37 @@ class FilmDetailsController extends Controller
      */
     public function store(Request $request)
     {
+        $film_id = $request->route('id');
+        $film_url = $request->route('name');
 
         $validatedData =  $request->validate([
             'user_id' => 'required|string',
             'comment' => 'required|string',
+            'comment_vote' => 'int',
         ]);
 
 
-        $film_id = $request->route('id');
-        $film_url = $request->route('name');
-
         $film = Film::where('film_id', $film_id)->where('film_url', $film_url)->first();
         $user = User::where('token', $validatedData['user_id'])->first();
+
+
+        if(isset($validatedData['comment_vote'])) {
+        if($validatedData['comment_vote'] != 0)
+        {
+
+            $vote = FilmVote::where('user_id',$validatedData['user_id'])->where('film_id',$film_id)->first();
+
+            if(!$vote) {
+                $votes = new FilmVote();
+                $votes->film_id = $film_id;
+                $votes->user_id =  $user->user_id;
+                $votes->vote_score = $validatedData['comment_vote'];
+                $votes->vote_status = true;
+                $votes->save();
+            } 
+
+        }
+    }
 
         if ($user) {
             if ($film) {

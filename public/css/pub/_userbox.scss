@@ -1,0 +1,152 @@
+.user-box {
+    .user-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+
+    }
+
+    &:focus-within .user-image {
+      box-sizing: border-box;
+      border: 1px solid var(--color-border);
+    }
+  }
+
+
+  .dropdown-menu {
+    position: relative;
+    display: inline-block;
+    z-index: 999999999;
+
+
+    &:focus-within .dropdown-body {
+      display: block;
+      transform: translateY(5px);
+
+    }
+
+    span {
+      border-color: transparent;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &::selection {
+        background-color: transparent;
+      }
+    }
+
+    .dropdown-body {
+      border-radius: 5px;
+      position: absolute;
+      top: 100%;
+      background-color: #fff;
+      border: 1px solid var(--color-border);
+      width: 100%;
+      display: none;
+      transition: 200ms all;
+
+      &.user-body {
+        min-width: 250px;
+        right: 0;
+      }
+
+      &.user-info-body {
+        min-width: 200px;
+        right: -40px;
+      }
+
+
+      .dropdown-header {
+        border-bottom: 1px solid var(--color-border);
+        box-sizing: border-box;
+        position: relative;
+        padding: 10px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+
+        img {
+          margin-top: 5px;
+          height: 40px;
+          flex-shrink: 0;
+          min-width: 40px;
+          width: 40px;
+          margin-right: 16px;
+          border-radius: 50%;
+          background-color: transparent;
+        }
+
+        .user-card-container {
+          min-width: 0;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: column;
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+
+          .user-card-name {
+            top: 0;
+            color: #030303;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 2rem;
+            letter-spacing: normal;
+          }
+
+          .user-card-mail {
+            top: 0;
+            margin-top: -5px;
+            color: #030303;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: normal;
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+
+
+        }
+
+
+      }
+
+
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding-inline-start: 0px;
+
+      li {
+        box-sizing: border-box;
+        display: block;
+        padding: 10px 15px;
+        font-size: 15px;
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.041);
+          color: #fff;
+        }
+
+
+      }
+    }
+
+
+  }

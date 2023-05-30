@@ -117,7 +117,22 @@ class filmController extends Controller
 
                   }
                }
+            } else {
+
+               $film->film_id = $key['id'];
+               $film->film_url = Helper::seo($title);
+               $film->title = $title;
+               $film->content = $key['overview'];
+               $film->categories = $categories;
+               $film->vote = $key['vote_average'];
+               $film->popularity = $key['popularity'];
+               $film->release_date = $date;
+               $film->update();
+               
             }
+
+
+
          }
       }
 

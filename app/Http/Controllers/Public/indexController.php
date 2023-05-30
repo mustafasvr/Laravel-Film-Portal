@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\FilmCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\FilmVote;
 
 class indexController extends Controller
 {
@@ -24,8 +25,14 @@ class indexController extends Controller
 
         foreach($categories as $cat)
         {
-            $filmc = Film::with('FilmImages')->orderBy('release_date','desc')->get();
+            $filmc = Film::with('FilmImages')
+            ->with(['filmComment' => function ($query) {
+                $query->latestComment();
+            }])
+            ->orderBy('release_date', 'desc')
+            ->get();
 
+            
             foreach ($filmc as $key)
             {
                 $explode = explode(',',$key->categories);        
@@ -41,12 +48,10 @@ class indexController extends Controller
 
                 } 
 
-           
-            
             }
          
         }
-
+   
 
 
         return \view('Public.home',\compact('film','kategori'));

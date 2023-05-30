@@ -19,6 +19,11 @@ class FilmComment extends Model
         return $this->hasOne(User::class,'user_id','user_id');
     }
 
+    public function scopeLatestComment($query)
+    {
+        return $query->orderBy('created_at', 'desc')->get();
+    }
+
 
 
 }

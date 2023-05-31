@@ -9,7 +9,7 @@ PHP tabanlı **api** kullanılarak film öneri puanlama tavsiye portalı
 
 ## Güncelleme notları
 
-
+- [V:1.0.8 ](https://github.com/mustafasvr/mezuniyet-film-portal/blob/main/.guncelleme-notlari/V1.0.8.md "V:1.0.8 ") - [İmages](https://github.com/mustafasvr/mezuniyet-film-portal/tree/main/.guncelleme-notlari/images/1.0.8 "V:1.0.8 - İmages") - [Demo](https://mfpp.mustafasever.com.tr/ "Demo")
 - [V:1.0.7 ](https://github.com/mustafasvr/mezuniyet-film-portal/blob/main/.guncelleme-notlari/V1.0.7.md "V:1.0.7 ") - [İmages](https://github.com/mustafasvr/mezuniyet-film-portal/tree/main/.guncelleme-notlari/images/1.0.7 "V:1.0.7 - İmages") 
 - [V:1.0.6 ](https://github.com/mustafasvr/mezuniyet-film-portal/blob/main/.guncelleme-notlari/V1.0.6.md "V:1.0.6 ") - [İmages](https://github.com/mustafasvr/mezuniyet-film-portal/tree/main/.guncelleme-notlari/images/1.0.6 "V:1.0.6 - İmages") 
 - [V:1.0.5 ](https://github.com/mustafasvr/mezuniyet-film-portal/blob/main/.guncelleme-notlari/V1.0.5.md "V:1.0.5 ") - [İmages](https://github.com/mustafasvr/mezuniyet-film-portal/tree/main/.guncelleme-notlari/images/1.0.5 "V:1.0.5 - İmages") 

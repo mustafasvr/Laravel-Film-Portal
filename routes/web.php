@@ -45,7 +45,7 @@ Route::name('profile.')->group(function () {
 
 
 Route::name('film.')->group(function () {
-    Route::get('film/{name}.{id}', [FilmDetailsController::class, 'index'])->name('index');
+    Route::get('film/{name}.{id}', [FilmDetailsController::class, 'index'])->name('index')->middleware('filmVisitors');
     Route::post('film/{name}.{id}/add-reply', [FilmDetailsController::class, 'store'])->name('comment');
 });
 

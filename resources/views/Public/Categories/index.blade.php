@@ -39,12 +39,7 @@
 
     </div>
 
-    <div class="film-portal-sidebar">
-
-        sadasdasd
-        
-        
-       </div>
+    <x-public.sidebar />
 
 
 </section>

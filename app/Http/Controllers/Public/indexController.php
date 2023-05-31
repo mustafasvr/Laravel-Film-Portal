@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\FilmCategories;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\FilmVisitors;
 use App\Models\FilmVote;
 
 class indexController extends Controller
@@ -18,6 +19,8 @@ class indexController extends Controller
     {
 
         $film = Film::with('FilmImages')->orderBy('release_date','desc')->limit(7)->get();
+
+   
 
         $categories = FilmCategories::all();
 

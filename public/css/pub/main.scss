@@ -308,9 +308,93 @@ body {
             grid-area: Sidebar;
             display: flex;
             flex-direction: column;
-            background-color: var(--content);
             height: 100vh;
             border-radius: $borderRadius;
+            .sidebar-item {
+                margin-bottom: 20px;
+                .sidebar-container {
+                    box-sizing: border-box;
+                    padding: $paddingS;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: var(--content);
+                    border-radius: $borderRadius;
+                    .sidebar-header {
+                        h2 {
+                            padding: $paddingS;
+                            margin: 0;
+                            color: white;
+                            text-align: center;
+                        }
+                    }
+                    .sidebar-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        .item {
+                            cursor: pointer;
+                            position: relative;
+                            margin: $marginS 0px;
+                            filter: brightness(75%);
+                            .film-title,
+                            .film-status,
+                            .film-imdb {
+                                content: '';
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            .film-status {
+                                width: 20px;
+                                height: 20px;
+                                padding: 10px;
+                                text-align: center;
+                                font-size: 24px;
+                                color: white;
+                                top: 5px;
+                                left: 5px;
+                                background-color: rgba(255, 255, 255, 0.411);
+                                border-radius: 50%;
+                            }
+
+                            .film-imdb {
+                                color: darkgoldenrod;
+                                font-weight: bolder;
+                                right: 0;
+                                top: 0;
+                                width: 42px;
+                                height: 42px;
+                                background-color: yellow;
+                                border-radius: 50% 0 50% 50%;
+                            }
+
+
+                            .film-title {
+                                bottom: 15px;
+                                left: 10px;
+                                padding: $paddingXS;
+                                color: white;
+                                font-size: large;
+                                white-space: nowrap; 
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                background-color:#5555559d;
+                                border-radius: $borderRadius;
+                            }
+
+                            img {
+                                border-radius: $borderRadius;
+                            }
+
+                            &:hover {
+                                filter: brightness(100%);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

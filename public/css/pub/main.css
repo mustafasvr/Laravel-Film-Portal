@@ -468,9 +468,86 @@ body .film-portal .film-portal-sidebar {
   grid-area: Sidebar;
   display: flex;
   flex-direction: column;
-  background-color: var(--content);
   height: 100vh;
   border-radius: 4px;
+}
+body .film-portal .film-portal-sidebar .sidebar-item {
+  margin-bottom: 20px;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--content);
+  border-radius: 4px;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-header h2 {
+  padding: 10px;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item {
+  cursor: pointer;
+  position: relative;
+  margin: 10px 0px;
+  filter: brightness(75%);
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-title,
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-status,
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-imdb {
+  content: "";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-status {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.411);
+  border-radius: 50%;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-imdb {
+  color: darkgoldenrod;
+  font-weight: bolder;
+  right: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  background-color: yellow;
+  border-radius: 50% 0 50% 50%;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item .film-title {
+  bottom: 15px;
+  left: 10px;
+  padding: 5px;
+  color: white;
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: rgba(85, 85, 85, 0.6156862745);
+  border-radius: 4px;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item img {
+  border-radius: 4px;
+}
+body .film-portal .film-portal-sidebar .sidebar-item .sidebar-container .sidebar-body .item:hover {
+  filter: brightness(100%);
 }
 body .film-container {
   position: relative;

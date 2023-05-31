@@ -28,5 +28,4 @@ class Film extends Model
 
 
 
-
 }

@@ -146,7 +146,7 @@ body a:hover {
   font-size: 125%;
 }
 .admin-table .admin-table-tr .admin-table-icon img {
-  width: 36px;
+  width: 28px;
   border-radius: 50%;
 }
 .admin-table .admin-table-tr .admin-table-tool {
@@ -298,7 +298,44 @@ body .main-container main .content .content-body {
 body .main-container main .content .content-body.content-row {
   padding: 10px;
 }
-body .main-container .film {
+body .main-container main .content .content-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+}
+body .main-container main .content .content-info .content-info-box {
+  background-color: #fefefe;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  height: 90px;
+  width: 100%;
+}
+body .main-container main .content .content-info .content-info-box i {
+  font-size: 64px;
+}
+body .main-container main .content .content-info .content-info-box .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+body .main-container main .content .content-info .content-info-box .main h3 {
+  padding: 0;
+  margin: 0;
+}
+body .main-container .film-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+body .main-container .film-wrapper .film {
   position: relative;
   margin: 10px 0;
   display: flex;
@@ -307,7 +344,7 @@ body .main-container .film {
   padding: 10px;
   font-weight: bold;
 }
-body .main-container .film::before {
+body .main-container .film-wrapper .film::before {
   content: "";
   background-image: var(--resim);
   background-color: black;
@@ -323,15 +360,15 @@ body .main-container .film::before {
   border-radius: 4px;
   filter: brightness(50%);
 }
-body .main-container .film .film-container {
+body .main-container .film-wrapper .film .film-container {
   display: flex;
   gap: 20px;
 }
-body .main-container .film .film-container .film-img {
+body .main-container .film-wrapper .film .film-container .film-img {
   width: 64px;
   height: 100%;
 }
-body .main-container .film .film-container .film-img img {
+body .main-container .film-wrapper .film .film-container .film-img img {
   width: 64px;
   height: 100%;
   border-radius: 4px;

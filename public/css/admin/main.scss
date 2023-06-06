@@ -62,10 +62,51 @@ body {
                         padding: $paddingS;
                     }
                 }
+
+
+                .content-info {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    justify-content: center;
+                    align-items: center;
+                    grid-gap: 10px;
+
+                    .content-info-box {
+                        background-color: $contentBg;
+                        border-radius: $borderRadius;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        gap: 20px;
+                        height: 90px;
+                        width: 100%;
+                        i {
+                            font-size: 64px;
+                        }
+                        .main {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: 10px;
+                            h3 {
+                                padding: 0;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+
+
             }
         }
 
 
+        .film-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: $paddingS;
         .film {
             position: relative;
             margin: 10px 0;
@@ -105,7 +146,7 @@ body {
             }
         }
 
-
+    }
 
     }
 }

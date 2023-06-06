@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Film;
 use App\Models\FilmImages;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class filmController extends Controller
@@ -39,7 +40,7 @@ class filmController extends Controller
 
       $film = Film::with('FilmImages')->orderBy('release_date', 'desc')->get();
 
-      return \view('Admin.film', \compact('film'));
+      return \view('Admin.Film.film', \compact('film'));
    }
 
 
@@ -138,4 +139,47 @@ class filmController extends Controller
 
       return \redirect()->back();
    }
+
+
+   public function edit(Request $request)
+   {
+      $film_url = $request->route('name');
+      $id = $request->route('id');
+
+
+      if($film = Film::where('film_url',$film_url)->where('film_id',$id)->with('FilmImages')->first())
+      {
+
+      return \view('Admin.Film.edit',compact('film'));
+         
+      } else {
+         return \view('Admin.Film.index');
+      }
+      return \view('Admin.Film.edit');
+   }
+
+
+   public function update(Request $request, string $id)
+   {
+
+      $film_url = $request->route('name');
+      $id = $request->route('id');
+       $page=Film::where('film_url',$film_url)->where('film_id',$id)->update(
+           [
+               'title' => $request->title,
+               'content' => $request->content,
+               'film_url' => Helper::seo($request->film_url),
+               'adult' => $request->adult
+           ],
+       );
+
+       if ($page)
+       {
+           return redirect()->route('admin.film.index');
+           exit;
+       } else {
+           return \redirect()->back();
+       }
+   }
+
 }

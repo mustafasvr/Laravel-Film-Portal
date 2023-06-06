@@ -10,13 +10,57 @@
 
 
     <section class="content-body content-row">
-    <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas sequi commodi dolorum alias amet, dolor aut libero quos incidunt tenetur a repudiandae dignissimos deserunt maiores in neque sint, quibusdam vel?
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat natus reiciendis neque enim. Dolores rem, voluptas, dolore hic quasi suscipit debitis sed repellat nam obcaecati ratione aspernatur nobis dolorem placeat!
+        <p>
+           <h1>Hoş Geldiniz!</h1> 
+            Film Sitemiz Admin Paneline hoş geldiniz! Bu panel, film sitesinin yönetimini kolaylaştırmak ve içerikleri güncel tutmak için tasarlanmıştır. İşte bu panelde gerçekleştirebileceğiniz bazı temel işlevler:
+          </p>
+          
+          <p>
+            1. Film Ekleme ve Düzenleme: Yeni filmleri sisteme ekleyebilir veya mevcut filmlerin bilgilerini güncelleyebilirsiniz. Bu sayede kullanıcılarımıza her zaman en yeni ve ilgi çekici filmleri sunabilirsiniz.
+          </p>
+          
+          <p>
+            2. Kategori Yönetimi: Film sitemizde kullanıcıların filmleri keşfetmesini kolaylaştırmak için çeşitli kategoriler bulunmaktadır. Bu panel üzerinden film kategorilerini oluşturabilir, düzenleyebilir veya kaldırabilirsiniz.
+          </p>
+          
+          <p>
+            3. Kullanıcı Yönetimi: Kullanıcıların film sitemizde hesap oluşturarak daha fazla özellikten faydalanmasını sağlayabilirsiniz. Bu panelde kullanıcıları yönetebilir, hesapları etkinleştirebilir veya devre dışı bırakabilirsiniz.
+          </p>
+          
+          <p>
+            4. İstatistikler: Film sitemizin performansını ve kullanıcı etkileşimlerini takip etmek için istatistikleri inceleyebilirsiniz. Hangi filmlerin daha popüler olduğunu, hangi kategorilerin daha çok ilgi gördüğünü ve kullanıcı etkileşimlerini görebilirsiniz.
+          </p>
 
-    {{ __('app.hello') }}
+          <p>
+            Bu admin paneli, film sitesinin yönetimini kolaylaştırmak ve kullanıcı deneyimini geliştirmek için tasarlanmıştır.
+        </p>
+          
+          
 
-    </p>
+    </section>
+
+    <section class="content-info">
+        <div class="content-info-box">
+            <i class="fas fa-clapperboard"></i>
+            <div class="main">
+                <h3>Filmler</h3>
+            <span>{{ $film }}</span>
+            </div>
+        </div>
+        <div class="content-info-box">
+            <i class="fas fa-user"></i>
+            <div class="main">
+                <h3>Kullanıcılar</h3>
+            <span>{{ $user }}</span>
+            </div>
+        </div>
+        <div class="content-info-box">
+            <i class="fas fa-comments"></i>
+            <div class="main">
+                <h3>Yorumlar</h3>
+            <span>{{ $filmComment }}</span>
+            </div>
+        </div>
     </section>
 
 @endsection

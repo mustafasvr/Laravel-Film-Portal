@@ -4,6 +4,9 @@
 
 
 <section class="content-header">
+    <div class="ch-left">
+        <h1>Filmler</h1>
+    </div>
     <div class="ch-right">
         <a href="{{ route('admin.film.cek') }}" class="button">Filmleri Çek</a>
     </div>
@@ -12,28 +15,22 @@
 
 <section class="content-body">
 
+    <div class="film-wrapper">
 
     @foreach ($film as $row)
 
+    <a href="{{ Route('admin.film.edit',['name' => $row->film_url,'id' => $row->film_id]) }}">
     <section class="film" style="--resim: url({{ $row->FilmImages->backdrops }})">
         <div class="film-container">
             <div class="film-img">
-                @if (isset($row->FilmImages->posters))
                 <img src="{{ $row->FilmImages->posters }}"  alt="{{ $row->title }}">
-                @else
-                <img src="{{ $row->FilmImages->backdrops }}"  alt="{{ $row->title }}">
-                @endif
-            </div>
-
-            <article class="film-body">
-                <div class="film-title">  {{ $row->title }}</div>
-                <div class="film-extra"></div>
-            </article>
-            
+            </div>            
         </div>
     </section>
-
+    </a>
     @endforeach
+
+</div>
 
 </section>
 

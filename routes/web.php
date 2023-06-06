@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Film\FilmDetailsController as FilmFilmDetailsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\filmController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\Admin\indexController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Public\categoriesController;
 use App\Http\Controllers\Admin\filmCategoryController;
+use App\Http\Controllers\Admin\filmDetailsController as AdminFilmDetailsController;
 use App\Http\Controllers\Admin\SettingsGroupController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Public\Film\FilmDetailsController;
@@ -83,6 +85,8 @@ Route::prefix('admin')->group(function () {
             Route::name('film.')->group(function () {
                 Route::get('/film', [filmController::class, 'index'])->name('index');
                 Route::get('/filmcek', [filmController::class, 'create'])->name('cek');
+                Route::get('/film/edit/{name}.{id}', [filmController::class, 'edit'])->name('edit');
+                Route::post('/film/edit/update/{name}.{id}', [filmController::class, 'update'])->name('edit.update');
             });
 
             // KATEGORİLER
